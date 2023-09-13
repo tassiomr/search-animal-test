@@ -8,7 +8,6 @@ export const InputContainer = styled.div`
   border-radius: 24px;
   padding: 12px;
   width: 100%;
-  margin: 32px 0;
 `;
 
 export const Container = styled.div`
