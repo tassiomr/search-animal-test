@@ -5,7 +5,7 @@ export const Container = styled.button`
   color: #3c4003; /* Cor do texto */
   border: none; /* Sem borda */
   border-radius: 4px; /* Borda arredondada */
-  padding: 10px 20px; /* Preenchimento interno */
+  padding: 12px 24px; /* Preenchimento interno */
   font-size: 16px; /* Tamanho da fonte */
   cursor: pointer; /* Ícone de cursor de mão */
   outline: none; /* Remover contorno ao focar */
