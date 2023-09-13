@@ -15,3 +15,9 @@ export const CenterWrapper = styled.div`
   align-items: center;
   width: 100%;
 `;
+
+export const AvatarIconContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
