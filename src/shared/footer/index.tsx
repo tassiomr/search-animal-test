@@ -1,11 +1,12 @@
 import React from 'react';
-import { Container, Text } from './styles';
+import { Container } from './styles';
+import { Text } from '../../components/text';
 
 export const Footer = () => {
   return (
     <Container>
-      <Text>ⓒ Google Inc</Text>
-      <Text>version: 0.1.0</Text>
+      <Text text="ⓒ Google Inc" />
+      <Text text="version: 0.1.0" />
     </Container>
   );
 };
