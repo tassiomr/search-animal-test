@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
-export const Container = styled.p`
-  font-size: 15px;
+export type TextProps = {
+  fontSize: number;
+  fontWeight?: string;
+  color?: string;
+};
+
+export const Container = styled.p<{ styles: TextProps }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #70757a;
-  padding: 20px;
+  color: ${({ styles }) => styles.color || '#70757a'};
+  font-size: ${({ styles }) => styles.fontSize || '12'}px;
 `;
