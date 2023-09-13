@@ -1,18 +1,15 @@
-export {};
 import React from 'react';
-import { Container, AvatarIconContainer } from './styles';
-import { Text } from '../../components/text';
-import { Avatar } from '../../components/avatar';
-import { MdApps } from 'react-icons/md';
+import { Container } from './styles';
 
-export const Header = () => {
+type Props = {
+  LeftComponent: React.ReactElement;
+  RightComponent: React.ReactElement;
+};
+export const Header: React.FC<Props> = ({ LeftComponent, RightComponent }) => {
   return (
     <Container>
-      <Text text="AgileContent FrontEnd Test" />
-      <AvatarIconContainer>
-        <MdApps size={35} />
-        <Avatar url={'https://i.scdn.co/image/ab6761610000e5eb4a61c7615c8125e832ffc32c'} />
-      </AvatarIconContainer>
+      {LeftComponent}
+      {RightComponent}
     </Container>
   );
 };
