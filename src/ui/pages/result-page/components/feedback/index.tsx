@@ -8,11 +8,13 @@ type Props = {
 export const FeebackMessage: React.FC<Props> = ({ term }) => {
   return (
     <div className="result-container-message" data-testid="result-page-feedback">
-      <Paragraph
-        text={constants.resultPage.feedbackMessage.feedbackNotTerm.message}
-        spanText={term}
-        data-testid="result-page-feedback-p1"
-      />
+      {term?.length ? (
+        <Paragraph
+          text={constants.resultPage.feedbackMessage.feedbackNotTerm.message}
+          spanText={term}
+          data-testid="result-page-feedback-p1"
+        />
+      ) : null}
       <Paragraph
         text={constants.resultPage.feedbackMessage.feedbackTryIt.message}
         spanText={constants.resultPage.feedbackMessage.feedbackTryIt.span}

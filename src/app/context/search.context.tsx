@@ -8,6 +8,7 @@ export type SearchContextData = {
   setTermToSearch: Dispatch<SetStateAction<string>>;
   clearTermToSearch: () => void;
   items: Animal[];
+  selectedItem: Animal | null;
   goToResultPage: () => void;
 };
 
@@ -29,11 +30,28 @@ export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
     <SearchContext.Provider
       value={{
         isLoading,
-        items: [],
+        items: [
+          {
+            id: 1,
+            image: 'image.png',
+            description: 'description',
+            url: 'url',
+            type: 'type',
+            title: 'title',
+          },
+        ],
         termToSearch,
         setTermToSearch,
         clearTermToSearch,
         goToResultPage,
+        selectedItem: {
+          id: 1,
+          image: 'image.png',
+          description: 'description',
+          url: 'url',
+          type: 'type',
+          title: 'title',
+        },
       }}
     >
       {children}
