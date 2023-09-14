@@ -1,8 +1,5 @@
-import React from 'react';
-import { SearchComponent } from '../../shared/search-component';
-import { Footer } from '../../shared/footer';
-import { Header } from '../../shared/header';
-import { Button } from '../../components/button';
+import { Button } from '@ui/components';
+import { Footer, Header, SearchComponent } from '@ui/shared';
 import './styles.css';
 
 export const HomePage = () => {

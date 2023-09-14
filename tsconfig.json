@@ -20,6 +20,7 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
+  "extends": "./tsconfig.aliases.json",
   "include": [
     "src"
   ]

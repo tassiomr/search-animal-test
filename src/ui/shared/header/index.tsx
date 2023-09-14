@@ -1,6 +1,6 @@
+import { Avatar } from '@ui/components/avatar';
 import React from 'react';
 import { MdApps } from 'react-icons/md';
-import { Avatar } from '../../components/avatar';
 import './styles.css';
 
 type Props = {

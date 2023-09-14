@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "baseUrl": ".",
+    "paths": {
+      "@ui/*": ["src/ui/*"],
+    }
+  },
+  "exclude": ["node_modules"]
+}

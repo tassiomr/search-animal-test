@@ -1,8 +1,7 @@
-import { Footer } from '../../shared/footer';
-import { Header } from '../../shared/header';
-import { SearchComponent } from '../../shared/search-component';
+import { ItemDetail } from '@ui/components';
+import { Footer, Header, SearchComponent } from '@ui/shared';
+import { ResultModel } from 'src/models/result.model';
 import { FeebackMessage } from './components/feedback';
-import { ItemDetail } from '../../components/item-detail';
 import { Loading } from './components/loading';
 import { ResultList } from './components/result-list';
 import './styles.css';
@@ -16,10 +15,10 @@ export const ResultPage = () => (
       </div>
     </Header>
     <div className="result-container-body">
-      {/* <FeebackMessage /> */}
-      {/* <Loading /> */}
-      {/* <ResultList /> */}
-      {/* <ItemDetail /> */}
+      <FeebackMessage />
+      <Loading />
+      <ResultList animals={[]} />
+      <ItemDetail item={{} as ResultModel} />
     </div>
     <Footer />
   </div>

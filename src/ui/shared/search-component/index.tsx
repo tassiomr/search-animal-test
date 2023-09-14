@@ -1,6 +1,6 @@
+import { Input } from '@ui/components';
 import React from 'react';
-import { Input } from '../../components/input';
-import { MdSearch, MdClose } from 'react-icons/md';
+import { MdClose, MdSearch } from 'react-icons/md';
 import './styles.css';
 
 type Props = {
