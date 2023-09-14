@@ -1,25 +1,25 @@
-/* Conatiners */  
+/* Containers */  
 .result-container-message { 
-  height: 100%;
+	height: 100%;
 	padding: 20px;
-   
+	
 	display: flex;
 	flex: 1;
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: flex-start;
-}
-
-/* Text */
-.text-feeback-message {
-  margin: 0;
+  }
+  
+  /* Text */
+  .text-feeback-message {
+	margin: 0;
 	padding: 4px;
 
-  font-size: var(--text-small);
-  color: var(--text-default-color);
-}
+	font-size: var(--text-small);
+	color: var(--text-default-color);
+  }
   
-.text-feeback-message > span {
-  font-weight: bolder;
-}
+  .text-feeback-message > span {
+	font-weight: bolder;
+  }
   

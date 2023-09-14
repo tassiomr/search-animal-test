@@ -1,0 +1,27 @@
+.result-item-container {
+    margin-bottom: 40px;
+
+    > h1, > h3, > p {
+        padding: 0;
+        margin: 0;
+        margin-bottom: 8px;
+    }
+
+    > h1 {
+        font-size: var(--text-medium);
+        color: var(--text-hyperlink);
+        width: 20%;
+        cursor: pointer;
+    }
+
+    > h3 {
+        font-size: var(--text-very-small);
+        color: var(--text-link);
+    }
+
+    > p {
+        font-size: var(--text-small);
+        color: var(--text-paragraph);
+    }
+}
+

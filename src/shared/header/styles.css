@@ -3,7 +3,7 @@
   box-sizing: border-box;
   max-height: 65px;
   padding: 20px;
-  position: absolute;
+  position: fixed;
   width: 100%;
 
   display: flex;

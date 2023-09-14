@@ -1,18 +1,22 @@
 :root {
-    /* Theme Color */
+    /* Cores */
     --background-color: white;
     --primary-color: #f8f9fa;
     --secondary-color: #3c4003;
     --text-color-default: #000000;
+    --text-title: var(--secondary-color);
+    --text-link: tomato;
+    --text-hyperlink: blue;
+    --text-footer: var(--secondary-color);
+    --text-paragraph: var(--secondary-color);
 
-    /* Text Common */
+    /* Tamanhos de texto */
     --text-very-small: 12px;
     --text-small: 16px;
     --text-medium: 24px;
     --text-large: 32px;
     --text-extra-large: 44px;
 
-    /* Shapes Common */
+    /* Altura padrão */
     --default-height: 100vh;
-
 }
