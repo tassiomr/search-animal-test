@@ -8,7 +8,7 @@ type Props = {
   testId?: string;
 };
 
-export const Button: React.FC<Props> = ({ label, onClick, isDisabled, testId }) => {
+export const Button: React.FC<Props> = ({ label, onClick, isDisabled, testId = 'button' }) => {
   return (
     <button data-testid={testId} disabled={isDisabled} onClick={onClick}>
       {label}
