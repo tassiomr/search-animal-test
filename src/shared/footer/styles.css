@@ -15,11 +15,7 @@
 }
 
 /* Text */
-:root {
-  --margin-footer-text: 10px;
-}
-
 .text-footer {
-  color: #70757a;
+  color: var(--text-footer);
   font-size: var(--text-very-small);
 }

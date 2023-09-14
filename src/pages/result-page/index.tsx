@@ -2,7 +2,7 @@ import { Footer } from '../../shared/footer';
 import { Header } from '../../shared/header';
 import { SearchComponent } from '../../shared/search-component';
 import { FeebackMessage } from './components/feedback';
-import { ItemDetail } from './components/item-detail';
+import { ItemDetail } from '../../components/item-detail';
 import { Loading } from './components/loading';
 import { ResultList } from './components/result-list';
 import './styles.css';
@@ -23,8 +23,8 @@ export const ResultPage = () => (
     <div className="result-container-body">
       {/* <FeebackMessage /> */}
       {/* <Loading /> */}
-      <ResultList />
-      <ItemDetail />
+      {/* <ResultList /> */}
+      {/* <ItemDetail /> */}
     </div>
     <Footer />
   </div>

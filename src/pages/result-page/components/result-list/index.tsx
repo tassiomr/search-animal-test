@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.css';
-import { ResultItem } from '../result-item';
+import { ResultItem } from '../../../../components/result-item';
 
 export const ResultList = () => {
   return (

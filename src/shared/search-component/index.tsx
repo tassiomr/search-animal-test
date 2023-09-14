@@ -7,9 +7,9 @@ export const SearchComponent = () => {
   return (
     <div className="search-component-container">
       <div className="input-container">
-        <MdSearch size={25} />
+        <MdSearch size={25} className="icons-search-component" />
         <Input />
-        <MdClose size={25} />
+        <MdClose size={25} className="icons-search-component" />
       </div>
     </div>
   );

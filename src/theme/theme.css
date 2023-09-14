@@ -11,11 +11,11 @@
     --text-paragraph: var(--secondary-color);
 
     /* Tamanhos de texto */
-    --text-very-small: 12px;
-    --text-small: 16px;
-    --text-medium: 24px;
-    --text-large: 32px;
-    --text-extra-large: 44px;
+    --text-very-small: 0.8rem;;
+    --text-small: 1rem;
+    --text-medium: 1.5rem;
+    --text-large: 2rem;
+    --text-extra-large: 2.5rem;
 
     /* Altura padrão */
     --default-height: 100vh;

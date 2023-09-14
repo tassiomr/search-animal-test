@@ -1,0 +1,28 @@
+.result-item-container {
+  margin-bottom: 40px;
+}
+
+.result-item-container > h1,
+.result-item-container > h3,
+.result-item-container > p {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.result-item-container > h1 {
+  font-size: var(--text-medium);
+  color: var(--text-hyperlink);
+  width: 20%;
+  cursor: pointer;
+}
+
+.result-item-container > h3 {
+  font-size: var(--text-very-small);
+  color: var(--text-link);
+}
+
+.result-item-container > p {
+  font-size: var(--text-small);
+  color: var(--text-paragraph);
+}

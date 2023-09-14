@@ -3,7 +3,7 @@ import './styles.css';
 import { Skeleton, SkeletonSizes } from '../../../../components/skeleton';
 
 const generateSkeletons = (key: number) => (
-  <div className="loading-container" key={key}>
+  <div className="loading-container-item" key={key}>
     <Skeleton size={SkeletonSizes.small} />
     <Skeleton size={SkeletonSizes.medium} />
     <Skeleton size={SkeletonSizes.large} limit={3} />
@@ -11,9 +11,9 @@ const generateSkeletons = (key: number) => (
 );
 
 export const Loading = () => (
-  <>
-    {Array.from({ length: 8 }, (_, index) => (
+  <div className="loading-container">
+    {Array.from({ length: 12 }, (_, index) => (
       <>{generateSkeletons(index)}</>
     ))}
-  </>
+  </div>
 );
