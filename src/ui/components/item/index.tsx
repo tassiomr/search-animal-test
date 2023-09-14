@@ -6,7 +6,7 @@ type Props = {
   testId?: string;
 };
 
-export const ResultItem: React.FC<Props> = ({ item, testId }) => {
+export const Item: React.FC<Props> = ({ item, testId }) => {
   return (
     <div className="result-item-container" data-testid={testId}>
       <h3>{item.url}</h3>
