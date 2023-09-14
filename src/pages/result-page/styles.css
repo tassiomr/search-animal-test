@@ -1,21 +1,23 @@
-import styled from 'styled-components';
-
-export const Container = styled.div`
-  height: 100vh;
+/* Conatiners */
+.result-container {
+  height: var(--default-height);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-`;
+  flex: 1;
+}
 
-export const ContainerMessage = styled.div`
+.result-container-message { 
   display: flex;
   flex-direction: column;
   flex: 1;
   justify-content: flex-start;
   align-items: flex-start;
-`;
+  height: 100%;
+}
 
-export const Body = styled.div`
+.result-container-body {
+  margin-top: 85px;
   height: 100%;
   flex-direction: column;
   justify-content: flex-start;
@@ -25,4 +27,14 @@ export const Body = styled.div`
   width: 100%;
   flex: 1;
   display: flex;
-`;
+}
+
+/* Text */
+.text-feeback-message {
+  font-size: var(--text-small);
+}
+
+.text-feeback-message--bolder {
+  color: black;
+  font-weight: bolder;
+}

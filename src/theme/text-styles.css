@@ -6,27 +6,6 @@
   font-size: var(--text-medium);
 }
 
-.text-footer {
-  color: #70757a;
-}
-
-.text-title-home-page--black {
-  color: #000000;
-}
-
-.text-title-home-page--bolder {
-  font-weight: bolder;
-}
-
-.text-feeback-message {
-  font-size: var(--text-small);
-}
-
-.text-feeback-message--bolder {
-  color: black;
-  font-weight: bolder;
-}
-
 .text-very-small {
   font-size: var(--text-very-small);
 }

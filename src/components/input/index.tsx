@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container } from './styles';
+import './styles.css';
 
 export const Input = () => {
-  return <Container />;
+  return <input />;
 };

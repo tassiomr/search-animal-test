@@ -1,17 +1,16 @@
 import React from 'react';
-import { Container, InputContainer } from './styles';
 import { Input } from '../../components/input';
-import { Button } from '../../components/button';
 import { MdSearch, MdClose } from 'react-icons/md';
+import './styles.css';
 
 export const SearchComponent = () => {
   return (
-    <Container>
-      <InputContainer>
+    <div className="search-component-container">
+      <div className="input-container">
         <MdSearch size={25} />
         <Input />
         <MdClose size={25} />
-      </InputContainer>
-    </Container>
+      </div>
+    </div>
   );
 };

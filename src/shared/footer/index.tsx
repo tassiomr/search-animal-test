@@ -1,15 +1,15 @@
 import React from 'react';
-import { Container } from './styles';
+import './styles.css';
 
 export const Footer = () => {
   return (
-    <Container>
-      <Paragraph text="ⓒ Google Inc" />
-      <Paragraph text="version: 0.1.0" />
-    </Container>
+    <div className="footer-container">
+      <Paragraph text="ⓒ Google Inc" className="text-footer--margin-left" />
+      <Paragraph text="version: 0.1.0" className="text-footer--margin-right" />
+    </div>
   );
 };
 
-const Paragraph: React.FC<{ text: string }> = ({ text }) => (
-  <p className="text-default text-footer text-very-small">{text}</p>
+const Paragraph: React.FC<{ text: string; className?: string }> = ({ text }) => (
+  <p className="text-footer--font-size text-footer--color">{text}</p>
 );
