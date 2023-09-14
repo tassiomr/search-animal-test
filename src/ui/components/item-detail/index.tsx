@@ -1,5 +1,5 @@
 import React from 'react';
-import { ResultModel } from '../../../models/result.model';
+import { ResultModel } from '../../../domain/models/result.model';
 import { Item } from '../item';
 import './styles.css';
 

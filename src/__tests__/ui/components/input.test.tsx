@@ -32,4 +32,15 @@ describe('Input Component', () => {
 
     expect(onKeyDown).toHaveBeenCalled();
   });
+
+  it('should call onKeyDown callback when the  key pressed is not Enter', () => {
+    const onKeyDown = jest.fn();
+    render(<Input onChange={() => {}} onKeyDown={onKeyDown} value="" />);
+
+    const inputComponent = screen.getByTestId('input');
+
+    fireEvent.keyDown(inputComponent, { key: 'A', code: 'A' });
+
+    expect(onKeyDown).not.toHaveBeenCalled();
+  });
 });

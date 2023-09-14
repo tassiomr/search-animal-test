@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { ResultModel } from '@models/result.model';
+import { ResultModel } from '@domain/models/result.model';
 import { ItemDetail } from '@ui/components';
 
 // Sample ResultModel data for testing

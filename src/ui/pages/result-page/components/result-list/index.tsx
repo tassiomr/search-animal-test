@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.css';
 import { Item } from '@ui/components/item';
 
-import { ResultModel } from '../../../../../models/result.model';
+import { ResultModel } from '../../../../../domain/models/result.model';
 
 type Props = {
   animals: ResultModel[];

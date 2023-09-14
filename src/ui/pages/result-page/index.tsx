@@ -1,6 +1,6 @@
 import { ItemDetail } from '@ui/components';
 import { Footer, Header, SearchComponent } from '@ui/shared';
-import { ResultModel } from 'src/models/result.model';
+import { ResultModel } from '@domain/models/result.model';
 import { FeebackMessage } from './components/feedback';
 import { Loading } from './components/loading';
 import { ResultList } from './components/result-list';

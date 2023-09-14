@@ -1,4 +1,4 @@
-import { ResultModel } from '../../../models/result.model';
+import { ResultModel } from '@domain/models/result.model';
 import './styles.css';
 
 type Props = {
