@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { HomePage } from '../pages/home-page';
-import { ResultPage } from '../pages/result-page';
+import { HomePage } from '../ui/pages/home-page';
+import { ResultPage } from '../ui/pages/result-page';
 
 export default createBrowserRouter([
   {
