@@ -1,13 +1,15 @@
 import React from 'react';
 import { Container } from './styles';
-import { Text } from '../../components/text';
-import { textColors, typography } from '../../theme';
 
 export const Footer = () => {
   return (
     <Container>
-      <Text text="ⓒ Google Inc" styles={{ fontSize: typography.verySmallText, color: textColors.footer }} />
-      <Text text="version: 0.1.0" styles={{ fontSize: typography.verySmallText, color: textColors.footer }} />
+      <Paragraph text="ⓒ Google Inc" />
+      <Paragraph text="version: 0.1.0" />
     </Container>
   );
 };
+
+const Paragraph: React.FC<{ text: string }> = ({ text }) => (
+  <p className="text-default text-footer text-very-small">{text}</p>
+);

@@ -1,0 +1,48 @@
+.text-default {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #70757a;
+  font-size: var(--text-medium);
+}
+
+.text-footer {
+  color: #70757a;
+}
+
+.text-title-home-page--black {
+  color: #000000;
+}
+
+.text-title-home-page--bolder {
+  font-weight: bolder;
+}
+
+.text-feeback-message {
+  font-size: var(--text-small);
+}
+
+.text-feeback-message--bolder {
+  color: black;
+  font-weight: bolder;
+}
+
+.text-very-small {
+  font-size: var(--text-very-small);
+}
+  
+.text-small {
+  font-size: var(--text-small)
+}
+
+.text-medium {
+  font-size: var(--text-medium)
+}
+
+.text-large {
+  font-size: var(--text-large)
+}
+
+.text-extra-large {
+  font-size: var(--text-large)
+}

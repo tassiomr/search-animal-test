@@ -1,15 +1,20 @@
 import React from 'react';
-import { Container } from './styles';
+import { Container, AvatarIconContainer } from './styles';
+import { MdApps } from 'react-icons/md';
+import { Avatar } from '../../components/avatar';
 
 type Props = {
-  LeftComponent: React.ReactElement;
-  RightComponent: React.ReactElement;
+  children: React.ReactNode;
 };
-export const Header: React.FC<Props> = ({ LeftComponent, RightComponent }) => {
+export const Header: React.FC<Props> = ({ children }) => {
   return (
     <Container>
-      {LeftComponent}
-      {RightComponent}
+      {children}
+
+      <AvatarIconContainer>
+        <MdApps size={35} />
+        <Avatar url={'https://i.scdn.co/image/ab6761610000e5eb4a61c7615c8125e832ffc32c'} />
+      </AvatarIconContainer>
     </Container>
   );
 };

@@ -12,7 +12,6 @@ export const SearchComponent = () => {
         <Input />
         <MdClose size={25} />
       </InputContainer>
-      <Button />
     </Container>
   );
 };

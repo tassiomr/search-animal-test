@@ -8,16 +8,12 @@ export const Container = styled.div`
   height: 100vh;
 `;
 
-export const CenterWrapper = styled.div`
+export const Body = styled.div`
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-`;
-
-export const AvatarIconContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
