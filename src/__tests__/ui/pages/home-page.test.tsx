@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { HomePage } from '@ui/pages';
 import { constants } from '@app/configs';
 import { SearchContext, SearchContextData } from '@app/context/search.context';
@@ -22,6 +22,7 @@ const defaultProps: SearchContextData = {
   setTermToSearch: jest.fn,
   clearTermToSearch: jest.fn,
   items: [],
+  goToResultPage: jest.fn(),
 };
 
 const getProvider =
@@ -29,14 +30,14 @@ const getProvider =
   ({ children }: { children: React.ReactNode }) => <Provider value={value}>{children}</Provider>;
 
 describe('HomePage Component', () => {
-  it('should render the HomePage component', () => {
+  it('renders the HomePage component', () => {
     render(<HomePage />, { wrapper: getProvider() });
 
     const homePageComponent = screen.getByTestId('home-page');
     expect(homePageComponent).toBeInTheDocument();
   });
 
-  it('should render the header with the specified title', () => {
+  it('renders the header with the expected title', () => {
     render(<HomePage />, { wrapper: getProvider() });
 
     const headerComponent = screen.getByTestId('home-page-header');
@@ -46,7 +47,7 @@ describe('HomePage Component', () => {
     expect(titleText).toBeInTheDocument();
   });
 
-  it('should render the body with an image, search component, and a button', () => {
+  it('renders the body with an image, search component, and a button', () => {
     render(<HomePage />, { wrapper: getProvider() });
 
     const bodyComponent = screen.getByTestId('home-page-body');
@@ -62,29 +63,29 @@ describe('HomePage Component', () => {
     expect(buttonComponent).toBeInTheDocument();
   });
 
-  it('should render the button disabled with a term to search is empty', () => {
+  it('disables the button when the search term is empty', () => {
     const props: SearchContextData = {
       ...defaultProps,
       termToSearch: '',
     };
     render(<HomePage />, { wrapper: getProvider(props) });
 
-    const buttonComponet = screen.getByTestId('home-page-button');
-    expect(buttonComponet).toBeDisabled();
+    const buttonComponent = screen.getByTestId('home-page-button');
+    expect(buttonComponent).toBeDisabled();
   });
 
-  it('should render the button not disabled with a term to search is not empty', () => {
+  it('enables the button when the search term is not empty', () => {
     const props: SearchContextData = {
       ...defaultProps,
       termToSearch: 'bird',
     };
     render(<HomePage />, { wrapper: getProvider(props) });
 
-    const buttonComponet = screen.getByTestId('home-page-button');
-    expect(buttonComponet).not.toBeDisabled();
+    const buttonComponent = screen.getByTestId('home-page-button');
+    expect(buttonComponent).not.toBeDisabled();
   });
 
-  it('should render the button to close when not disabled with a term to search is not empty', () => {
+  it('displays the close button with the correct class when the search term is empty', () => {
     const props: SearchContextData = {
       ...defaultProps,
       termToSearch: '',
@@ -96,7 +97,7 @@ describe('HomePage Component', () => {
     expect(closeButtonComponent).toHaveClass('icons-search-component--none');
   });
 
-  it('should render the button to close when not disabled with a term to search is not empty', () => {
+  it('displays the close button with the correct class when the search term is not empty', () => {
     const props: SearchContextData = {
       ...defaultProps,
       termToSearch: 'bird',
@@ -106,5 +107,55 @@ describe('HomePage Component', () => {
     const closeButtonComponent = screen.getByTestId('clean-icon-button');
 
     expect(closeButtonComponent).toHaveClass('icons-search-component');
+  });
+
+  it('handles button click by invoking the "go to result page" function when the search term is not empty', () => {
+    const props: SearchContextData = {
+      ...defaultProps,
+      termToSearch: 'bird',
+    };
+    render(<HomePage />, { wrapper: getProvider(props) });
+
+    const buttonComponent = screen.getByTestId('home-page-button');
+    fireEvent.click(buttonComponent);
+    expect(props.goToResultPage).toHaveBeenCalled();
+  });
+
+  it('does not handle button click by invoking the "go to result page" function when the search term is empty', () => {
+    const props: SearchContextData = {
+      ...defaultProps,
+      termToSearch: '',
+    };
+    render(<HomePage />, { wrapper: getProvider(props) });
+
+    const buttonComponent = screen.getByTestId('home-page-button');
+    fireEvent.click(buttonComponent);
+    expect(props.goToResultPage).not.toHaveBeenCalled();
+  });
+
+  it('does not call "go to result page" when the Enter key is pressed and the search term is empty', () => {
+    const props: SearchContextData = {
+      ...defaultProps,
+      termToSearch: '',
+    };
+    render(<HomePage />, { wrapper: getProvider(props) });
+
+    const inputComponent = screen.getByTestId('input-search-component');
+    fireEvent.keyDown(inputComponent, { key: 'Enter', code: 'Enter' });
+
+    expect(props.goToResultPage).not.toHaveBeenCalled();
+  });
+
+  it('calls "go to result page" when the Enter key is pressed and the search term is not empty', () => {
+    const props: SearchContextData = {
+      ...defaultProps,
+      termToSearch: 'lion',
+    };
+    render(<HomePage />, { wrapper: getProvider(props) });
+
+    const inputComponent = screen.getByTestId('input-search-component');
+    fireEvent.keyDown(inputComponent, { key: 'Enter', code: 'Enter' });
+
+    expect(props.goToResultPage).toHaveBeenCalled();
   });
 });

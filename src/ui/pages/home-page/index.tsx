@@ -5,7 +5,13 @@ import { constants } from '@app/configs';
 import { useSearchContext } from '@app/context/search.context';
 
 export const HomePage = () => {
-  const { termToSearch, setTermToSearch, clearTermToSearch } = useSearchContext();
+  const { termToSearch, setTermToSearch, clearTermToSearch, goToResultPage } = useSearchContext();
+
+  const onKeyDown = () => {
+    if (termToSearch.length) {
+      goToResultPage();
+    }
+  };
 
   return (
     <div className="home-container" data-testid="home-page">
@@ -20,11 +26,11 @@ export const HomePage = () => {
         <SearchComponent
           onChange={setTermToSearch}
           onClose={clearTermToSearch}
-          onKeyDown={() => {}}
+          onKeyDown={onKeyDown}
           value={termToSearch}
         />
         <div className="spacer" />
-        <Button isDisabled={!termToSearch.length} label="Buscar" onClick={() => {}} testId="home-page-button" />
+        <Button isDisabled={!termToSearch.length} label="Buscar" onClick={goToResultPage} testId="home-page-button" />
       </div>
       <Footer testId="home-page-footer" />
     </div>
