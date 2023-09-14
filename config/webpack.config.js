@@ -322,7 +322,11 @@ module.exports = function (webpackEnv) {
         }),
         ...(modules.webpackAliases || {}),
         "@ui": path.resolve(__dirname, "../src/ui"),
-        "@app": path.resolve(__dirname, "../src/app")
+        "@app": path.resolve(__dirname, "../src/app"),
+        "@data": path.resolve(__dirname, "../src/data"),
+        "@domain": path.resolve(__dirname, "../src/domain"),
+        "@infra": path.resolve(__dirname, "../src/infra"),
+        "@e2e": path.resolve(__dirname, "../src/e2e")
       },
       plugins: [
         // Prevents users from importing files from outside of src/ (or node_modules/).
