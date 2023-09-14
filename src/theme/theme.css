@@ -1,8 +1,18 @@
 :root {
+    /* Theme Color */
+    --background-color: white;
+    --primary-color: #f8f9fa;
+    --secondary-color: #3c4003;
+    --text-color-default: #000000;
+
+    /* Text Common */
     --text-very-small: 12px;
     --text-small: 16px;
     --text-medium: 24px;
     --text-large: 32px;
     --text-extra-large: 44px;
+
+    /* Shapes Common */
     --default-height: 100vh;
+
 }

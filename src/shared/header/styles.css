@@ -1,27 +1,29 @@
 /* Containers */
 .header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  max-height: 65px;
-  box-shadow: 0px -6px 10px 2px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
-  padding: 0;
-  position: absolute;
+  max-height: 65px;
   padding: 20px;
+  position: absolute;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   background-color: white;
+  box-shadow: 0px -6px 10px 2px rgba(0, 0, 0, 0.2);
 }
 
 .avatar-icon-container {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 /* Components */
 .icon-google-apps {
-  color: #70757a;
   padding: 8px;
+  
+  color: #70757a;
   font-size: 30px;
 }

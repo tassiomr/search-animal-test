@@ -9,8 +9,8 @@ export const HomePage = () => {
   return (
     <div className="home-container">
       <Header>
-        <p className="text-default text-title-home-page text-title-home-page--black">
-          <span className="text-title-home-page--bolder">AgileContent </span> FrontEnd Test
+        <p className="text-title-home-page">
+          <span>AgileContent </span> FrontEnd Test
         </p>
       </Header>
       <div className="home-body">

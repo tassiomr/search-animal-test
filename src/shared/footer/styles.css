@@ -1,15 +1,17 @@
 /* Containers */
 .footer-container {
-  display: flex;
-  width: 100%;
+  bottom: 0;
   box-sizing: border-box;
   max-height: 65px;
-  background-color: #e3e6e8;
-  justify-content: space-between;
-  align-items: center;
   padding: 20px;
   position: absolute;
-  bottom: 0;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  background-color: #e3e6e8;
 }
 
 /* Text */
@@ -17,10 +19,7 @@
   --margin-footer-text: 10px;
 }
 
-.text-footer--font-size {
-  font-size: var(--text-very-small);
-}
-
-.text-footer--color {
+.text-footer {
   color: #70757a;
+  font-size: var(--text-very-small);
 }
