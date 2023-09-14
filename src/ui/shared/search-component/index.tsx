@@ -25,7 +25,7 @@ export const SearchComponent: React.FC<Props> = ({ value, onChange, onClose, onK
       <div className="input-container">
         <MdSearch className="icons-search-component" data-testid="search-icon" />
         <Input onChange={onChange} onKeyDown={onKeyDown} value={value} testId="input-search-component" />
-        <MdClose className={getComputedClass(value)} data-testid="clean-icon" onClick={onClose} />
+        <MdClose className={getComputedClass(value)} data-testid="clean-icon-button" onClick={onClose} />
       </div>
     </div>
   );

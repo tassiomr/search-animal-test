@@ -17,9 +17,9 @@ describe('Input Component', () => {
 
     const inputComponent = screen.getByTestId('input');
 
-    fireEvent.change(inputComponent, { target: { value: 'example' } });
+    fireEvent.change(inputComponent, { target: { value: 'bird' } });
 
-    expect(onChange).toHaveBeenCalledWith('example');
+    expect(onChange).toHaveBeenCalledWith('bird');
   });
 
   it('should call onKeyDown callback when the Enter key is pressed', () => {
