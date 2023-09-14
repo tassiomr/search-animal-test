@@ -19,10 +19,10 @@ const generateSkeletons = (limit: number, size: SkeletonSizes) => {
   ));
 };
 
-export const Skeleton: React.FC<Props> = ({ limit = 1, size = SkeletonSizes.small, testId }) => {
+export const Skeleton: React.FC<Props> = ({ limit = 1, size = SkeletonSizes.small, testId = 'skeleton' }) => {
   if (limit > 1) {
-    return <div data-testId={testId}>{generateSkeletons(limit, size)}</div>;
+    return <div data-testid={testId}>{generateSkeletons(limit, size)}</div>;
   }
 
-  return <div data-testId={testId} className={`skeleton-loading ${size}`}></div>;
+  return <div data-testid={testId} className={`skeleton-loading ${size}`}></div>;
 };
