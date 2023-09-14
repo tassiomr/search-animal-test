@@ -8,9 +8,9 @@ type Props = {
   testId?: string;
 };
 
-export const Header: React.FC<Props> = ({ children, testId }) => {
+export const Header: React.FC<Props> = ({ children, testId = 'header' }) => {
   return (
-    <div className="header-container" data-testId={testId}>
+    <div className="header-container" data-testid={testId}>
       {children}
 
       <div className="avatar-icon-container">
