@@ -1,15 +1,6 @@
 {
-  "extends": [
-    "eslint:recommended",
-    "plugin:prettier/recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
-  "plugins": [
-    "prettier",
-    "@typescript-eslint",
-    "react",
-    "react-hooks"
-  ],
+  "extends": ["eslint:recommended", "plugin:prettier/recommended", "plugin:@typescript-eslint/recommended"],
+  "plugins": ["prettier", "@typescript-eslint", "react", "react-hooks"],
   "rules": {
     "eqeqeq": "error",
     "no-console": "warn",
@@ -41,12 +32,5 @@
     "es6": true,
     "jest": true
   },
-  "ignorePatterns": [
-    "node_modules",
-    "build",
-    "dist",
-    "public",
-    "config",
-    "scripts"
-  ]
+  "ignorePatterns": ["node_modules", "build", "dist", "public", "config", "scripts"]
 }
