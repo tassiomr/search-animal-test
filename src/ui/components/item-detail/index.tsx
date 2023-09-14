@@ -1,6 +1,6 @@
 import React from 'react';
 import { ResultModel } from '../../../models/result.model';
-import { ResultItem } from '../result-item';
+import { Item } from '../item';
 import './styles.css';
 
 type Props = {
@@ -13,7 +13,7 @@ export const ItemDetail: React.FC<Props> = ({ item, testId }) => {
     <div className="item-detail-container" data-testid={testId}>
       <aside className="item-detail-wrapper">
         <img src={item.image} />
-        <ResultItem item={item} />
+        <Item item={item} testId="item-details" />
       </aside>
     </div>
   );
