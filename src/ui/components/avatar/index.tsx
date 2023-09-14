@@ -6,6 +6,6 @@ type Props = {
   testId?: string;
 };
 
-export const Avatar: React.FC<Props> = ({ url, testId }) => {
+export const Avatar: React.FC<Props> = ({ url, testId = 'avatar' }) => {
   return <img className="avatar" src={url} data-testid={testId} />;
 };
