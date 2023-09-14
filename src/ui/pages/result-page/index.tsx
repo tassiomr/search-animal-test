@@ -15,7 +15,7 @@ export const ResultPage = () => (
       </div>
     </Header>
     <div className="result-container-body">
-      <FeebackMessage />
+      <FeebackMessage term="" />
       <Loading />
       <ResultList animals={[]} />
       <ItemDetail item={{} as ResultModel} />

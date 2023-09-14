@@ -1,13 +1,14 @@
 import { Button } from '@ui/components';
 import { Footer, Header, SearchComponent } from '@ui/shared';
 import './styles.css';
+import { constants } from '@app/configs';
 
 export const HomePage = () => {
   return (
     <div className="home-container" data-testid="home-page">
       <Header testId="home-page-header">
         <p className="text-title-home-page">
-          <span>AgileContent </span> FrontEnd Test
+          <span>{constants.homePage.titleSpan} </span> {constants.homePage.titleRest}
         </p>
       </Header>
       <div className="home-body" data-testid="home-page-body">

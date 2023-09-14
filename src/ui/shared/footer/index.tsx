@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles.css';
+import { constants } from '@app/configs';
 
 type Props = {
   testId?: string;
@@ -8,8 +9,8 @@ type Props = {
 export const Footer: React.FC<Props> = ({ testId }) => {
   return (
     <div className="footer-container" data-testId={testId}>
-      <Paragraph text="ⓒ Google Inc" className="text-footer--margin-left" />
-      <Paragraph text="version: 0.1.0" className="text-footer--margin-right" />
+      <Paragraph text={constants.footer.enterprise} className="text-footer--margin-left" />
+      <Paragraph text={constants.footer.version.replace('$s', '2')} className="text-footer--margin-right" />
     </div>
   );
 };
