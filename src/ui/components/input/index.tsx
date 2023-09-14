@@ -8,7 +8,7 @@ type Props = {
   testId?: string;
 };
 
-export const Input: React.FC<Props> = ({ onChange, onKeyDown, value, testId }) => {
+export const Input: React.FC<Props> = ({ onChange, onKeyDown, value, testId = 'input' }) => {
   return (
     <input
       data-testid={testId}
