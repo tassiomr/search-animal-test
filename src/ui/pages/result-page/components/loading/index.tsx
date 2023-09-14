@@ -13,7 +13,7 @@ const generateSkeletons = (key: number) => (
 export const Loading = () => (
   <div className="loading-container" data-testid="result-page-loading">
     {Array.from({ length: 12 }, (_, index) => (
-      <>{generateSkeletons(index)}</>
+      <div key={index}>{generateSkeletons(index)}</div>
     ))}
   </div>
 );

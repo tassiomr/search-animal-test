@@ -8,7 +8,7 @@ type Props = {
   testId?: string;
 };
 
-export const ItemDetail: React.FC<Props> = ({ item, testId }) => {
+export const ItemDetail: React.FC<Props> = ({ item, testId = 'item-detail' }) => {
   return (
     <div className="item-detail-container" data-testid={testId}>
       <aside className="item-detail-wrapper">

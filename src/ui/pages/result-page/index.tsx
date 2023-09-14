@@ -11,10 +11,16 @@ export const ResultPage = () => (
     <Header testId="result-page-header">
       <div className="search-component-result-container">
         <img className="image-result-container" src={''} />
-        <SearchComponent />
+        <SearchComponent
+          testId="search-component-result-page"
+          onChange={() => {}}
+          onClose={() => {}}
+          onKeyDown={() => {}}
+          value=""
+        />
       </div>
     </Header>
-    <div className="result-container-body">
+    <div className="result-container-body" data-testid="result-container-body">
       <FeebackMessage term="" />
       <Loading />
       <ResultList animals={[]} />
