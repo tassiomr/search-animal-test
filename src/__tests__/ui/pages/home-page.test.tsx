@@ -19,10 +19,12 @@ const Provider: React.FC<{ children: React.ReactNode; value: SearchContextData }
 const defaultProps: SearchContextData = {
   isLoading: false,
   termToSearch: '',
-  setTermToSearch: jest.fn,
-  clearTermToSearch: jest.fn,
+  setTermToSearch: jest.fn(),
+  clearTermToSearch: jest.fn(),
   items: [],
   goToResultPage: jest.fn(),
+  selectedItem: null,
+  getResults: jest.fn(),
 };
 
 const getProvider =
@@ -85,28 +87,28 @@ describe('HomePage Component', () => {
     expect(buttonComponent).not.toBeDisabled();
   });
 
-  it('displays the close button with the correct class when the search term is empty', () => {
+  it('displays the clear button with the correct class when the search term is empty', () => {
     const props: SearchContextData = {
       ...defaultProps,
       termToSearch: '',
     };
     render(<HomePage />, { wrapper: getProvider(props) });
 
-    const closeButtonComponent = screen.getByTestId('clean-icon-button');
+    const clearButtonComponent = screen.getByTestId('clean-icon-button');
 
-    expect(closeButtonComponent).toHaveClass('icons-search-component--none');
+    expect(clearButtonComponent).toHaveClass('icons-search-component--none');
   });
 
-  it('displays the close button with the correct class when the search term is not empty', () => {
+  it('displays the clear button with the correct class when the search term is not empty', () => {
     const props: SearchContextData = {
       ...defaultProps,
       termToSearch: 'bird',
     };
     render(<HomePage />, { wrapper: getProvider(props) });
 
-    const closeButtonComponent = screen.getByTestId('clean-icon-button');
+    const clearButtonComponent = screen.getByTestId('clean-icon-button');
 
-    expect(closeButtonComponent).toHaveClass('icons-search-component');
+    expect(clearButtonComponent).toHaveClass('icons-search-component');
   });
 
   it('handles button click by invoking the "go to result page" function when the search term is not empty', () => {
