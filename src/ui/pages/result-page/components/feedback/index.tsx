@@ -3,17 +3,13 @@ import './styles.css';
 import { constants } from '@app/configs';
 
 type Props = {
-  term: string;
+  errorMessage?: { message: string; span: string } | null;
 };
-export const FeebackMessage: React.FC<Props> = ({ term }) => {
+export const FeebackMessage: React.FC<Props> = ({ errorMessage }) => {
   return (
     <div className="result-container-message" data-testid="result-page-feedback">
-      {term?.length ? (
-        <Paragraph
-          text={constants.resultPage.feedbackMessage.feedbackNotTerm.message}
-          spanText={term}
-          data-testid="result-page-feedback-p1"
-        />
+      {errorMessage ? (
+        <Paragraph text={errorMessage.message} spanText={errorMessage.span} data-testid="result-page-feedback-p1" />
       ) : null}
       <Paragraph
         text={constants.resultPage.feedbackMessage.feedbackTryIt.message}

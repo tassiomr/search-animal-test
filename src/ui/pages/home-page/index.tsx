@@ -22,7 +22,7 @@ export const HomePage = () => {
         </p>
       </Header>
       <div className="home-body" data-testid="home-page-body">
-        <img src={logo} />
+        <img src={logo} alt="logo" />
         <div className="spacer" />
         <SearchComponent
           onChange={setTermToSearch}

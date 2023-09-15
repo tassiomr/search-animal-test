@@ -3,7 +3,6 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { HomePage } from '@ui/pages';
 import { constants } from '@app/configs';
 import { SearchContext, SearchContextData } from '@app/contexts/search.context';
-import { ResultModel } from '@domain/models/result.model';
 
 const Provider: React.FC<{ children: React.ReactNode; value: SearchContextData }> = ({ children, value }) => {
   return (
@@ -27,6 +26,7 @@ const defaultProps: SearchContextData = {
   selectedAnimal: null,
   getResults: jest.fn(),
   setAnimal: jest.fn(),
+  errorMessage: null,
 };
 
 const getProvider =
@@ -57,7 +57,7 @@ describe('HomePage Component', () => {
     const bodyComponent = screen.getByTestId('home-page-body');
     expect(bodyComponent).toBeInTheDocument();
 
-    const imageComponent = screen.getByAltText('Imagem');
+    const imageComponent = screen.getByAltText('logo');
     expect(imageComponent).toBeInTheDocument();
 
     const searchComponentComponent = screen.getByTestId('input-search-component');

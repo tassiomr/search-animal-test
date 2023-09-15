@@ -5,9 +5,6 @@ export const constants = {
   },
   resultPage: {
     feedbackMessage: {
-      feedbackNotTerm: {
-        message: 'Not results found for',
-      },
       feedbackTryIt: {
         message: 'Try looking for:',
         span: 'insect, fish, horse, crocodilia, bear, cetacean, cow, lion,rabbit, cat, snake, dog, bird',
@@ -17,5 +14,9 @@ export const constants = {
   footer: {
     enterprise: 'ⓒ Google 2023',
     version: 'vesion: $s',
+  },
+  errors: {
+    unknown: 'Unknown error',
+    noResultFor: 'Not results found for',
   },
 };
