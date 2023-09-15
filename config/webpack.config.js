@@ -252,6 +252,7 @@ module.exports = function (webpackEnv) {
       minimizer: [
         // This is only used in production mode
         new TerserPlugin({
+          exclude: [/.test./],
           terserOptions: {
             parse: {
               // We want terser to parse ecma 8 code. However, we don't want it
@@ -326,7 +327,8 @@ module.exports = function (webpackEnv) {
         "@data": path.resolve(__dirname, "../src/data"),
         "@domain": path.resolve(__dirname, "../src/domain"),
         "@infra": path.resolve(__dirname, "../src/infra"),
-        "@e2e": path.resolve(__dirname, "../src/e2e")
+        "@e2e": path.resolve(__dirname, "../src/e2e"),
+        "@utils": path.resolve(__dirname, "../src/utils")
       },
       plugins: [
         // Prevents users from importing files from outside of src/ (or node_modules/).

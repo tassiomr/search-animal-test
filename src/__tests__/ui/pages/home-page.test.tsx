@@ -3,6 +3,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { HomePage } from '@ui/pages';
 import { constants } from '@app/configs';
 import { SearchContext, SearchContextData } from '@app/contexts/search.context';
+import { defaultProps } from '@__mocks__/search.context.mock';
 
 const Provider: React.FC<{ children: React.ReactNode; value: SearchContextData }> = ({ children, value }) => {
   return (
@@ -16,24 +17,11 @@ const Provider: React.FC<{ children: React.ReactNode; value: SearchContextData }
   );
 };
 
-const defaultProps: SearchContextData = {
-  isLoading: false,
-  termToSearch: '',
-  setTermToSearch: jest.fn(),
-  clearTermToSearch: jest.fn(),
-  items: [],
-  goToResultPage: jest.fn(),
-  selectedAnimal: null,
-  getResults: jest.fn(),
-  setAnimal: jest.fn(),
-  errorMessage: null,
-};
-
 const getProvider =
   (value: SearchContextData = defaultProps) =>
   ({ children }: { children: React.ReactNode }) => <Provider value={value}>{children}</Provider>;
 
-describe('HomePage Component', () => {
+describe('Home Page Suit Test', () => {
   it('renders the HomePage component', () => {
     render(<HomePage />, { wrapper: getProvider() });
 

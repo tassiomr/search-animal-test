@@ -6,11 +6,16 @@ import './styles.css';
 type Props = {
   item: ResultModel;
   testId?: string;
+  onClose: () => void;
 };
 
-export const ItemDetail: React.FC<Props> = ({ item, testId = 'item-detail' }) => {
+export const ItemDetail: React.FC<Props> = ({ item, onClose, testId = 'item-detail' }) => {
+  const handleOnClose = () => {
+    onClose();
+  };
+
   return (
-    <div className="item-detail-container" data-testid={testId}>
+    <div onClick={handleOnClose} className="item-detail-container" data-testid={testId}>
       <aside className="item-detail-wrapper">
         <img src={item.image} />
         <Item item={item} testId="item-details" />

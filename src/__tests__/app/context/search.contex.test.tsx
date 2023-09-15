@@ -95,8 +95,6 @@ describe('Search Context Test Suite', () => {
   });
 
   it('should call "getResults" with a search term and maintain initial values', async () => {
-    // ... Descrição do teste para chamada de "getResults" com um termo
-
     expect(screen.getByTestId('isLoading')).toHaveTextContent('false');
 
     userEvent.click(screen.getByText('GetResults'));
@@ -115,8 +113,6 @@ describe('Search Context Test Suite', () => {
   });
 
   it('should clear the search term when "ClearTermButton" is clicked', async () => {
-    // ... Descrição do teste para limpar o termo de busca
-
     userEvent.click(screen.getByText('SetTermButton'));
     expect(screen.getByTestId('termToSearch')).toHaveTextContent('bird');
 

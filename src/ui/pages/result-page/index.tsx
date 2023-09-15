@@ -50,7 +50,9 @@ export const ResultPage = memo(function () {
         {shouldDisplayFeedbackMessage && <FeebackMessage errorMessage={errorMessage} />}
         <Loading isVisible={isLoading} />
         {shouldDisplayResults ? <ResultList animals={items} onClick={setAnimal} /> : null}
-        {shouldDisplayItemDetail ? <ItemDetail item={selectedAnimal} /> : null}
+        {shouldDisplayItemDetail ? (
+          <ItemDetail testId="item-detail-search" onClose={() => setAnimal(null)} item={selectedAnimal} />
+        ) : null}
       </div>
       <Footer />
     </div>
