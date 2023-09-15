@@ -2,31 +2,22 @@
 import { ResultModel } from '@domain/models/result.model';
 import { faker } from '@faker-js/faker';
 
-const _getTitle = (term: string) => {
-  /* @ts-ignore */
-  const type = faker.animal[term];
+const getImage = (type: string) => faker.image.urlLoremFlickr({ category: type, width: 644, height: 362 });
+const getType = () => faker.animal.type();
+const getUrl = () => faker.internet.url();
+const getText = () => faker.lorem.sentences();
+/* @ts-ignore */
+const getTitle = (type: string) => faker.animal[type]();
 
-  if (!type) {
-    return '';
-  }
+export const data: ResultModel[] = Array.from({ length: 1000 }, (_, index) => {
+  const type = getType();
 
-  return type() as string;
-};
-
-export const data = (term: string): ResultModel[] => {
-  const title = _getTitle(term);
-  if (!title.length) {
-    return [];
-  }
-
-  const data = [...new Array(100)];
-
-  return data.map((item, index) => ({
+  return {
+    type,
+    title: getTitle(type),
     id: index + 1,
-    title: title,
-    image: faker.image.urlLoremFlickr({ category: 'animal', width: 600, height: 200 }),
-    description: faker.lorem.sentence(),
-    type: faker.animal.type(),
-    url: faker.internet.url(),
-  }));
-};
+    url: getUrl(),
+    description: getText(),
+    image: getImage(type),
+  };
+});
