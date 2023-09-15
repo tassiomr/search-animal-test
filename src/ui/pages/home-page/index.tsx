@@ -2,7 +2,7 @@ import { Button } from '@ui/components';
 import { Footer, Header, SearchComponent } from '@ui/shared';
 import './styles.css';
 import { constants } from '@app/configs';
-import { useSearchContext } from '@app/context/search.context';
+import { useSearchContext } from '@app/contexts/search.context';
 
 export const HomePage = () => {
   const { termToSearch, setTermToSearch, clearTermToSearch, goToResultPage } = useSearchContext();
