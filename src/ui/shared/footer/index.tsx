@@ -15,6 +15,4 @@ export const Footer: React.FC<Props> = ({ testId = 'footer' }) => {
   );
 };
 
-const Paragraph: React.FC<{ text: string; className?: string }> = ({ text }) => (
-  <p className="text-footer--font-size text-footer--color">{text}</p>
-);
+const Paragraph: React.FC<{ text: string; className?: string }> = ({ text }) => <p className="text-footer">{text}</p>;

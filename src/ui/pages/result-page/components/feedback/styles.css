@@ -2,10 +2,13 @@
 .result-container-message {
   height: 100%;
   padding: 20px;
+  padding-left: 8rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  align-self: flex-start;
+  width: 100%;
 }
 
 /* Text */
@@ -18,4 +21,11 @@
 
 .text-feeback-message > span {
   font-weight: bolder;
+}
+
+
+@media screen and (max-width: 900px) {
+  .result-container-message {
+    padding: 20px;
+  }
 }

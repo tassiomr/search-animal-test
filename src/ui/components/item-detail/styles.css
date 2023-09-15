@@ -3,14 +3,15 @@
   height: 100%;
   display: flex;
   justify-content: center;
-  padding-left: 2em;
   transition: width 0.1s, background-color 0.1s;
+  flex:1;
+  padding: 1rem
 }
 
 .item-detail-wrapper {
-  border: 1px solid var(--secondary-color);
+  border: 1px solid var(--secondary-bg-color);
   border-radius: 4px;
-  width: 70%;
+  width: 100%;
   max-width: 20rem;
   height: 80%;
   max-height: 25rem;
@@ -28,11 +29,12 @@
   height: auto;
   max-height: 20rem;
   margin-bottom: 20px;
+  object-fit: contain;
 }
 
-.result-item-container>h1,
-.result-item-container>h3,
-.result-item-container>p {
+.item-detail-wrapper > .result-item-container > h1,
+.item-detail-wrapper > .result-item-container > h3,
+.item-detail-wrapper > .result-item-container > p {
   color: var(--secondary-color);
 }
 

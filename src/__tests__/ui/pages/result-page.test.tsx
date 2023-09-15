@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { ResultPage } from '@ui/pages';
-import { SearchContext, SearchContextData } from '@app/context/search.context';
+import { SearchContext, SearchContextData } from '@app/contexts/search.context';
 import { constants } from '@app/configs';
 
 const Provider: React.FC<{ children: React.ReactNode; value: SearchContextData }> = ({ children, value }) => {
@@ -23,7 +23,7 @@ const defaultProps: SearchContextData = {
   clearTermToSearch: jest.fn(),
   items: [],
   goToResultPage: jest.fn(),
-  selectedItem: null,
+  selectedAnimal: null,
   getResults: jest.fn(),
 };
 

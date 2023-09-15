@@ -2,6 +2,7 @@ import React from 'react';
 import { ResultModel } from '../../../domain/models/result.model';
 import { Item } from '../item';
 import './styles.css';
+import logo from '@ui/assets/logo.png';
 
 type Props = {
   item: ResultModel;

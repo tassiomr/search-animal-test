@@ -3,6 +3,7 @@ import { Footer, Header, SearchComponent } from '@ui/shared';
 import './styles.css';
 import { constants } from '@app/configs';
 import { useSearchContext } from '@app/contexts/search.context';
+import logo from '@ui/assets/logo.png';
 
 export const HomePage = () => {
   const { termToSearch, setTermToSearch, clearTermToSearch, goToResultPage } = useSearchContext();
@@ -21,7 +22,7 @@ export const HomePage = () => {
         </p>
       </Header>
       <div className="home-body" data-testid="home-page-body">
-        <img src="https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Imagem" />
+        <img src={logo} />
         <div className="spacer" />
         <SearchComponent
           onChange={setTermToSearch}

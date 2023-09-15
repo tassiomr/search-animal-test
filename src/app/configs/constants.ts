@@ -15,7 +15,7 @@ export const constants = {
     },
   },
   footer: {
-    enterprise: 'ⓒ Google Inc',
+    enterprise: 'ⓒ Google 2023',
     version: 'vesion: $s',
   },
 };

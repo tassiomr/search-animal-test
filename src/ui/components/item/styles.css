@@ -1,5 +1,5 @@
 .result-item-container {
-  margin-bottom: 40px;
+  margin-bottom: 1.5rem;
 }
 
 .result-item-container > h1,
@@ -8,12 +8,12 @@
   padding: 0;
   margin: 0;
   margin-bottom: 8px;
+  font-weight: 400;
 }
 
 .result-item-container > h1 {
   font-size: var(--text-medium);
   color: var(--text-hyperlink);
-  width: 20%;
   cursor: pointer;
 }
 

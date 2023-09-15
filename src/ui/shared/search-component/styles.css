@@ -17,6 +17,7 @@
 .icons-search-component {
   font-size: 25px;
   padding: 8px;
+  transition:  color 1s;
 }
 
 .icons-search-component--none {

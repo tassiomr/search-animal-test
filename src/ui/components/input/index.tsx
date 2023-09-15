@@ -19,6 +19,7 @@ export const Input: React.FC<Props> = ({ onChange, onKeyDown, value, testId = 'i
         }
       }}
       onChange={(event) => {
+        event.preventDefault();
         onChange(event.target.value);
       }}
     />
