@@ -1,6 +1,4 @@
-import { constants } from '@app/configs';
 import { SearchUsecase } from '@domain/models/search-use-case';
-import { NotFoundError } from '@domain/validators/error';
 
 describe('Search Use Case Test Suite', () => {
   it('should return an array with values when send a valid animal type', async () => {
