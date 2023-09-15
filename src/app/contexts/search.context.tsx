@@ -47,20 +47,20 @@ export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
     setItems([]);
     setErrorMessage(null);
 
-    if (termToSearch.length) {
-      try {
-        const animalItems = await SearchUsecase(termToSearch);
-        setItems(animalItems);
-      } catch (error) {
-        if (error instanceof NotFoundError) {
-          setErrorMessage({ message: error.message, span: error.span });
-        } else {
-          setErrorMessage({ message: constants.errors.unknown, span: '' });
-        }
-      } finally {
-        setIsLoading(false);
+    // if (termToSearch.length) {
+    try {
+      const animalItems = await SearchUsecase(termToSearch);
+      setItems(animalItems);
+    } catch (error) {
+      if (error instanceof NotFoundError) {
+        setErrorMessage({ message: error.message, span: error.span });
+      } else {
+        setErrorMessage({ message: constants.errors.unknown, span: '' });
       }
+    } finally {
+      setIsLoading(false);
     }
+    // }
   };
 
   return (

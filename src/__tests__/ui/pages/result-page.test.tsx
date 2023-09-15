@@ -158,7 +158,7 @@ describe('ResultPage Component', () => {
 
     const container = screen.getByTestId('result-container-body');
     expect(container.children.length).toBe(2);
-    const resultListComponent = container.children.item(0);
+    const resultListComponent = container.children.item(0) as HTMLElement;
 
     expect(resultListComponent?.getAttribute('data-testid')).toBe('result-page-list');
     expect(resultListComponent?.children.length).toBe(1);
@@ -166,6 +166,10 @@ describe('ResultPage Component', () => {
     const itemDetailComponent = container.children.item(1);
     expect(itemDetailComponent?.getAttribute('data-testid')).toBe('item-detail');
     expect(itemDetailComponent?.children.length).toBe(1);
+
+    const titleItemClickComponent = screen.getByTestId('item-title-1');
+    fireEvent.click(titleItemClickComponent);
+    expect(defaultProps.setAnimal).toHaveBeenCalled();
   });
 
   it('should testing search actions component in result page', () => {
