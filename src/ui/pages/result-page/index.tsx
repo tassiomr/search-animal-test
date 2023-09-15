@@ -56,3 +56,5 @@ export const ResultPage = memo(function () {
     </div>
   );
 });
+
+export default ResultPage;

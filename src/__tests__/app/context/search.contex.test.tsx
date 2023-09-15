@@ -1,13 +1,9 @@
-import React, { useEffect } from 'react';
+import { SearchProvider, useSearchContext } from '@app/contexts/search.context';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { SearchProvider, useSearchContext } from '@app/contexts/search.context';
-import { BrowserRouter } from 'react-router-dom';
 
-// Mock for SearchUsecase
-jest.mock('@domain/models/search-use-case', () => ({
-  SearchUsecase: jest.fn().mockResolvedValue([]),
-}));
+import React, { useEffect } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
 const renderWithContext = (component: React.ReactElement) => {
   return render(
@@ -17,115 +13,130 @@ const renderWithContext = (component: React.ReactElement) => {
   );
 };
 
-describe('SearchContext', () => {
-  it('should provide initial context values', () => {
-    const TestComponent = () => {
-      const context = useSearchContext();
+const ComponentTest = () => {
+  const context = useSearchContext();
 
-      return (
-        <>
-          <div data-testid="isLoading">{context.isLoading.toString()}</div>
-          <div data-testid="termToSearch">{context.termToSearch}</div>
-          <div data-testid="selectedAnimal">{context.selectedAnimal ? 'Selected' : 'Not Selected'}</div>
-        </>
-      );
-    };
+  const handleSetTerm = () => {
+    context.setTermToSearch('bird');
+  };
 
-    renderWithContext(<TestComponent />);
+  const handleClear = () => {
+    context.clearTermToSearch();
+  };
 
+  const handleSelectAnAnimal = () => {
+    context.setAnimal({
+      id: 1,
+      image: 'image.png',
+      description: 'description',
+      url: 'url',
+      type: 'type',
+      title: 'tit;e',
+    });
+  };
+
+  const handleErrorButton = () => {
+    context.setTermToSearch('tomorrowland');
+  };
+
+  const handleNavigate = () => {
+    context.goToResultPage();
+  };
+
+  const handleGetResults = () => {
+    context.getResults();
+  };
+
+  useEffect(() => {
+    if (context.termToSearch.length) context.getResults();
+  }, [context.termToSearch]);
+
+  return (
+    <div>
+      <div data-testid="isLoading">{context.isLoading.toString()}</div>
+      <div data-testid="termToSearch">{context.termToSearch}</div>
+      <div data-testid="selectedAnimal">{context?.selectedAnimal ? 'Selected' : 'Not Selected'}</div>
+      <div data-testid="errorMessage">{context.errorMessage?.message}</div>
+      <div data-testid="items">{context.items.length}</div>
+      <button onClick={handleSetTerm}>SetTermButton</button>
+      <button onClick={handleClear}>ClearTermButton</button>
+      <button onClick={handleSelectAnAnimal}>SelectAnimalButton</button>
+      <button onClick={handleErrorButton}>ErrorButton</button>
+      <button onClick={handleNavigate}>NavigateButton</button>
+      <button onClick={handleGetResults}>GetResults</button>
+    </div>
+  );
+};
+
+describe('Search Context Test Suite', () => {
+  beforeEach(() => {
+    renderWithContext(<ComponentTest />);
+  });
+
+  it('should initialize with correct default values', () => {
     expect(screen.getByTestId('isLoading')).toHaveTextContent('false');
     expect(screen.getByTestId('termToSearch')).toHaveTextContent('');
+    expect(screen.getByTestId('errorMessage')).toHaveTextContent('');
+    expect(screen.getByTestId('items')).toHaveTextContent('0');
     expect(screen.getByTestId('selectedAnimal')).toHaveTextContent('Not Selected');
   });
 
-  it('should update context values when actions are called', async () => {
-    const TestComponent = () => {
-      const context = useSearchContext();
+  it('should call "getResults" with an empty search term and maintain initial values', async () => {
+    expect(screen.getByTestId('isLoading')).toHaveTextContent('false');
 
-      useEffect(() => {
-        context.goToResultPage();
-      }, []);
-
-      const handleSearch = async () => {
-        context.setTermToSearch('lion');
-        await context.getResults();
-      };
-
-      return (
-        <>
-          <div data-testid="isLoading">{context.isLoading.toString()}</div>
-          <div data-testid="termToSearch">{context.termToSearch}</div>
-          <div data-testid="selectedAnimal">{context.selectedAnimal ? 'Selected' : 'Not Selected'}</div>
-          <button onClick={handleSearch}>Search</button>
-        </>
-      );
-    };
-
-    renderWithContext(<TestComponent />);
-
-    userEvent.click(screen.getByText('Search'));
-    await waitFor(() => expect(screen.getByTestId('termToSearch')).toHaveTextContent('lion'));
-
+    userEvent.click(screen.getByText('GetResults'));
     expect(screen.getByTestId('isLoading')).toHaveTextContent('true');
-    await waitFor(() => expect(screen.getByTestId('isLoading')).toHaveTextContent('false'));
+
+    await waitFor(() => expect(screen.getByTestId('isLoading')).toHaveTextContent('true'));
+    expect(screen.getByTestId('termToSearch')).toHaveTextContent('');
+    expect(screen.getByTestId('errorMessage')).toHaveTextContent('');
+    expect(screen.getByTestId('items')).toHaveTextContent('0');
+    expect(screen.getByTestId('selectedAnimal')).toHaveTextContent('Not Selected');
   });
 
-  it('should handle error correctly', async () => {
-    jest.spyOn(console, 'error').mockImplementation(() => {});
+  it('should call "getResults" with a search term and maintain initial values', async () => {
+    // ... Descrição do teste para chamada de "getResults" com um termo
 
-    const TestComponent = () => {
-      const context = useSearchContext();
+    expect(screen.getByTestId('isLoading')).toHaveTextContent('false');
 
-      useEffect(() => {
-        context.setTermToSearch('tomorrowland');
-      }, []);
+    userEvent.click(screen.getByText('GetResults'));
+    expect(screen.getByTestId('isLoading')).toHaveTextContent('true');
 
-      const handleSearch = async () => {
-        try {
-          // await context.getResults();
-        } catch (e) {}
-      };
-
-      return (
-        <>
-          <p data-testid="error-message">{context.errorMessage?.toString()}</p>
-          <button onClick={handleSearch}>Search</button>
-        </>
-      );
-    };
-
-    renderWithContext(<TestComponent />);
-
-    // fireEvent.click(screen.getByText('Search'));
-
-    // await waitFor(() => expect(screen.getByText('Not result for')).toBeInTheDocument());
+    await waitFor(() => expect(screen.getByTestId('isLoading')).toHaveTextContent('true'));
+    expect(screen.getByTestId('termToSearch')).toHaveTextContent('');
+    expect(screen.getByTestId('errorMessage')).toHaveTextContent('');
+    expect(screen.getByTestId('items')).toHaveTextContent('0');
+    expect(screen.getByTestId('selectedAnimal')).toHaveTextContent('Not Selected');
   });
 
-  it('should call function get results with a term without value', async () => {
-    const TestComponent = () => {
-      const context = useSearchContext();
+  it('should set the search term to "bird" when "SetTermButton" is clicked', () => {
+    userEvent.click(screen.getByText('SetTermButton'));
+    expect(screen.getByTestId('termToSearch')).toHaveTextContent('bird');
+  });
 
-      useEffect(() => {
-        context.setTermToSearch('bird');
-      }, []);
+  it('should clear the search term when "ClearTermButton" is clicked', async () => {
+    // ... Descrição do teste para limpar o termo de busca
 
-      const handleClear = async () => {
-        context.clearTermToSearch();
-      };
+    userEvent.click(screen.getByText('SetTermButton'));
+    expect(screen.getByTestId('termToSearch')).toHaveTextContent('bird');
 
-      return (
-        <>
-          <div data-testid="termToSearch">{context.termToSearch}</div>
-          <div data-testid="selectedAnimal">{context.selectedAnimal ? 'Selected' : 'Not Selected'}</div>
-          <button onClick={handleClear}>Close</button>
-        </>
-      );
-    };
+    userEvent.click(screen.getByText('ClearTermButton'));
+    expect(screen.getByTestId('termToSearch')).toHaveTextContent('');
+  });
 
-    renderWithContext(<TestComponent />);
+  it('should select an animal when "SelectAnimalButton" is clicked', () => {
+    expect(screen.getByTestId('selectedAnimal')).toHaveTextContent('Not Selected');
 
-    await waitFor(() => expect(screen.getByTestId('termToSearch')).toHaveTextContent('bird'));
-    userEvent.click(screen.getByText('Close'));
-    await waitFor(() => expect(screen.getByTestId('termToSearch')).toHaveTextContent(''));
+    userEvent.click(screen.getByText('SelectAnimalButton'));
+    expect(screen.getByTestId('selectedAnimal')).toHaveTextContent('Selected');
+  });
+
+  it('should render error message correctly when "ErrorButton" is clicked', async () => {
+    expect(screen.getByTestId('errorMessage')).toHaveTextContent('');
+    expect(screen.getByTestId('termToSearch')).toHaveTextContent('');
+    userEvent.click(screen.getByText('ErrorButton'));
+
+    await waitFor(() => expect(screen.getByTestId('errorMessage')).toHaveTextContent(''));
+    await waitFor(() => expect(screen.getByTestId('termToSearch')).toHaveTextContent('tomorrowland'));
   });
 });

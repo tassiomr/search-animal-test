@@ -29,7 +29,7 @@
   height: auto;
   max-height: 20rem;
   margin-bottom: 20px;
-  object-fit: contain;
+  object-fit: fill;
 }
 
 .item-detail-wrapper > .result-item-container > h1,

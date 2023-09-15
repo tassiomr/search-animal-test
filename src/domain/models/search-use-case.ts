@@ -2,6 +2,7 @@ import { constants } from '@app/configs';
 import { data } from '@data/seeds';
 import { NotFoundError } from '@domain/validators/error';
 import { ResultModel } from './result.model';
+import { TextRegexTest } from '@domain/validators/regex';
 
 export const SearchUsecase = (term: string): Promise<ResultModel[]> => {
   return new Promise((resolve, reject) => {
@@ -11,8 +12,7 @@ export const SearchUsecase = (term: string): Promise<ResultModel[]> => {
           return animal;
         }
 
-        const validateName = new RegExp(term, 'i');
-        if (validateName.test(animal.title)) {
+        if (TextRegexTest(term).test(animal.title)) {
           return animal;
         }
       });
@@ -22,6 +22,6 @@ export const SearchUsecase = (term: string): Promise<ResultModel[]> => {
       }
 
       reject(new NotFoundError(constants.errors.noResultFor, term));
-    }, 3000);
+    }, 100);
   });
 };

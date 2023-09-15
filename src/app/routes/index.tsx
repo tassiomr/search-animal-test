@@ -1,7 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { HomePage } from '../../ui/pages/home-page';
-import { ResultPage } from '../../ui/pages/result-page';
 import { SearchProvider } from '@app/contexts/search.context';
+import { lazy } from 'react';
+
+const _HomePage = lazy(() => import('@ui/pages/home-page'));
+const _ResultPage = lazy(() => import('@ui/pages/result-page'));
 
 const ContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return <SearchProvider>{children}</SearchProvider>;
@@ -12,7 +14,7 @@ export default createBrowserRouter([
     path: '/',
     element: (
       <ContextProvider>
-        <HomePage />
+        <_HomePage />
       </ContextProvider>
     ),
   },
@@ -20,7 +22,7 @@ export default createBrowserRouter([
     path: '/result',
     element: (
       <ContextProvider>
-        <ResultPage />,
+        <_ResultPage />,
       </ContextProvider>
     ),
   },
