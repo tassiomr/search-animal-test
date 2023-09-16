@@ -3,8 +3,8 @@ button {
   border: none;
   border-radius: 4px;
   font-size: 16px;
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+  background-color: var(--button-bg-color-enabled);
+  color: var(--button-text-color-enabled);
   cursor: pointer;
   outline: none;
   transition: background-color 0.2s;
@@ -15,7 +15,7 @@ button:hover {
 }
 
 button:disabled {
-  background-color: rgba(97, 98, 98, 0.1);
-  color: var(--primary-color);
+  background-color: var(--button-bg-color-disabled);
+  color: var(--button-text-color-disabled);
   cursor: auto;
 }

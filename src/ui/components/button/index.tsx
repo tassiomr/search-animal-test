@@ -10,7 +10,7 @@ type Props = {
 
 export const Button: React.FC<Props> = ({ label, onClick, isDisabled, testId = 'button' }) => {
   return (
-    <button data-testid={testId} disabled={isDisabled} onClick={onClick}>
+    <button aria-label={label} data-testid={testId} disabled={isDisabled} onClick={onClick}>
       {label}
     </button>
   );
