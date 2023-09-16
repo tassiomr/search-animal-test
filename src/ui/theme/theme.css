@@ -1,15 +1,22 @@
 :root {
   /* Cores */
-  --bg-color: white;
-  --secondary-bg-color: #e3e6e8;
-  --primary-color: #f8f9fa;
-  --secondary-color: #black;
-  --text-color-default: #000000;
+  --bg-color: rgb(255,255,255);
+  --secondary-bg-color: rgb(227, 230, 232);
+  --primary-color: rgb(248, 249, 250);
+  --secondary-color: rgb(112, 117, 122);
+  --text-color-default: rgb(0,0,0);
   --text-title: var(--secondary-color);
   --text-link: var(--secondary-color);
   --text-hyperlink: blue;
   --text-footer: var(--secondary-color);
   --text-paragraph: var(--secondary-color);
+
+  /* button colors */
+  --button-bg-color-enabled: var(--primary-color);
+  --button-tx-color-enabled: rgb(60, 64, 67);
+  --button-bg-color-disabled: var(--secondary-bg-color);
+  --button-tx-color-disabled: rgb(255,255,255);
+  --button-bg-color-hover: rgba(97, 98, 98, 0.1);
 
   /* Tamanhos de texto */
   --text-very-small: 0.8rem;

@@ -1,14 +1,28 @@
 import { Button } from '@ui/components';
 import React from 'react';
+import { Mount } from '../utils/mount';
+
+const bgColorEnabled = 'rgb(248, 249, 250)';
+const bgColorDisabled = 'rgb(227, 230, 232)';
+const txColorEnabled = 'rgb(60, 64, 67)';
+const txColorDisabled = 'rgb(255,255,255)';
 
 describe('Button Component Test Suite', () => {
   it('should render a button with a label "Search" and disabled', () => {
     const label = 'Search';
     const isDisabled = true;
     const onClick = cy.stub().as('click');
-    cy.mount(<Button onClick={onClick} label={label} isDisabled={isDisabled} />);
+    cy.mount(
+      <Mount>
+        <Button onClick={onClick} label={label} isDisabled={isDisabled} />
+      </Mount>
+    );
 
-    cy.get('button').contains(label).and('be.disabled', true);
+    cy.get('button')
+      .contains(label)
+      .and('have.css', 'background-color', bgColorDisabled)
+      .and('have.css', 'color', txColorDisabled)
+      .and('be.disabled', isDisabled);
 
     cy.get('@click').should('not.be.called');
   });
@@ -19,7 +33,12 @@ describe('Button Component Test Suite', () => {
     const onClick = cy.stub().as('click');
     cy.mount(<Button onClick={onClick} label={label} isDisabled={isDisabled} />);
 
-    cy.get('button').contains(label).should('not.be.disabled', true);
+    cy.get('button')
+      .contains(label)
+      .and('have.css', 'background-color', bgColorEnabled)
+      .and('have.css', 'color', txColorEnabled)
+      .should('not.be.disabled', isDisabled)
+      .click();
 
     cy.get('@click').should('be.called');
   });

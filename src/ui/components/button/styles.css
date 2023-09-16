@@ -4,7 +4,7 @@ button {
   border-radius: 4px;
   font-size: 16px;
   background-color: var(--button-bg-color-enabled);
-  color: var(--button-text-color-enabled);
+  color: var(--button-tx-color-enabled);
   cursor: pointer;
   outline: none;
   transition: background-color 0.2s;
@@ -16,6 +16,6 @@ button:hover {
 
 button:disabled {
   background-color: var(--button-bg-color-disabled);
-  color: var(--button-text-color-disabled);
+  color: var(--button-tx-color-disabled);
   cursor: auto;
 }
