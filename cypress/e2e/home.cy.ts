@@ -1,7 +1,6 @@
 describe('Home Page Test Suite', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/');
-    cy.viewport(600, 440);
   });
 
   it('should disable the button when there is no text in the input and enable it with input text', () => {
@@ -54,7 +53,7 @@ describe('Home Page Test Suite', () => {
     });
   });
 
-  it.only('should allow the user to enter a valid name of an animal and click the search button', () => {
+  it('should allow the user to enter a valid name of an animal and click the search button', () => {
     const button = cy.get('button');
     button.should('to.disabled');
 
@@ -66,7 +65,9 @@ describe('Home Page Test Suite', () => {
     });
   });
 
-  it('should allow the user to enter a valid name of an animal and click the search button', () => {
+  it.only('should allow the user to enter a valid name of an animal and click the search button', () => {
+    cy.viewport(640, 600);
+
     const button = cy.get('button');
     button.should('to.disabled');
 
