@@ -1,5 +1,5 @@
-import { Button } from '@ui/components';
-import { Footer, Header, SearchComponent } from '@ui/shared';
+import { Button, Input } from '@ui/components';
+import { Footer, Header } from '@ui/shared';
 import './styles.css';
 import { constants } from '@app/configs';
 import { useSearchContext } from '@app/contexts/search.context';
@@ -24,12 +24,7 @@ export const HomePage = () => {
       <div className="home-body" data-testid="home-page-body">
         <img src={logo} alt="logo" />
         <div className="spacer" />
-        <SearchComponent
-          onChange={setTermToSearch}
-          onClose={clearTermToSearch}
-          onKeyDown={onKeyDown}
-          value={termToSearch}
-        />
+        <Input onChange={setTermToSearch} onClose={clearTermToSearch} onKeyDown={onKeyDown} value={termToSearch} />
         <div className="spacer" />
         <Button isDisabled={!termToSearch.length} label="Buscar" onClick={goToResultPage} testId="home-page-button" />
       </div>

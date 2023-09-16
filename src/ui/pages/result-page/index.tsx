@@ -1,8 +1,8 @@
 import React, { memo, useEffect } from 'react';
 import './styles.css';
-import { Header, Footer, SearchComponent } from '@ui/shared';
+import { Header, Footer } from '@ui/shared';
 import { FeebackMessage } from './components/feedback';
-import { ItemDetail } from '@ui/components';
+import { Input, ItemDetail } from '@ui/components';
 import { useSearchContext } from '@app/contexts/search.context';
 import { Loading } from './components/loading';
 import { ResultList } from './components/result-list';
@@ -37,8 +37,8 @@ export const ResultPage = memo(function () {
       <Header testId="result-page-header">
         <div className="search-component-result-container">
           <img className="image-result-container" alt="Result" src={logo} />
-          <SearchComponent
-            testId="search-component-result-page"
+          <Input
+            testId="search-input-result-page"
             onChange={setTermToSearch}
             onClose={clearTermToSearch}
             onKeyDown={getResults}
