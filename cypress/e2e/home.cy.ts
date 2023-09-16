@@ -66,8 +66,6 @@ describe('Home Page Test Suite', () => {
   });
 
   it.only('should allow the user to enter a valid name of an animal and click the search button', () => {
-    cy.viewport(640, 600);
-
     const button = cy.get('button');
     button.should('to.disabled');
 
