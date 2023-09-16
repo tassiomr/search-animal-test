@@ -47,18 +47,16 @@ export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
     setItems([]);
     setErrorMessage(null);
 
-    if (termToSearch.length) {
-      try {
-        setItems(await SearchUsecase(termToSearch));
-      } catch (error) {
-        if (error instanceof NotFoundError) {
-          setErrorMessage({ message: error.message, span: error.span });
-        } else {
-          setErrorMessage({ message: constants.errors.unknown, span: '' });
-        }
-      } finally {
-        setIsLoading(false);
+    try {
+      setItems(await SearchUsecase(termToSearch));
+    } catch (error) {
+      if (error instanceof NotFoundError) {
+        setErrorMessage({ message: error.message, span: error.span });
+      } else {
+        setErrorMessage({ message: constants.errors.unknown, span: '' });
       }
+    } finally {
+      setIsLoading(false);
     }
   };
 
