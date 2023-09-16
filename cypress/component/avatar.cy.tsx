@@ -1,7 +1,5 @@
-// test: button component with cy refacto?r
-
 import { Avatar } from '@ui/components';
-import React from 'react';
+import * as React from 'react';
 
 describe('Avatar Component Test, Suite', () => {
   it('should render with url and size correctly', () => {

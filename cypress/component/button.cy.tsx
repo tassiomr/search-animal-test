@@ -1,11 +1,11 @@
 import { Button } from '@ui/components';
-import React from 'react';
+import * as React from 'react';
 import { Mount } from '../utils/mount';
 
 const bgColorEnabled = 'rgb(248, 249, 250)';
 const bgColorDisabled = 'rgb(227, 230, 232)';
 const txColorEnabled = 'rgb(60, 64, 67)';
-const txColorDisabled = 'rgb(255,255,255)';
+const txColorDisabled = 'rgb(255, 255, 255)';
 
 describe('Button Component Test Suite', () => {
   it('should render a button with a label "Search" and disabled', () => {

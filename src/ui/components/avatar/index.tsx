@@ -7,5 +7,5 @@ type Props = {
 };
 
 export const Avatar: React.FC<Props> = ({ url, testId = 'avatar' }) => {
-  return <img className="avatar" src={url} data-testid={testId} />;
+  return <img className="avatar" alt="user-avatart" src={url} data-testid={testId} />;
 };
