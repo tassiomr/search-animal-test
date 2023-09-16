@@ -68,6 +68,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "7.21.11",
+    "@cypress/code-coverage": "^3.12.1",
     "@types/react-test-renderer": "^18.0.1",
     "@types/styled-components": "^5.1.27",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
@@ -93,9 +94,16 @@
   },
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "start": "node scripts/start.js",
+    "start": "node scripts/start.js -r @cypress/instrument-cra start",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "dev": "start-test 3000 cy:open",
+    "cy:open": "cypress open",
+    "cy:open-e2e": "server-test 3000 'cypress open --e2e --browser chrome'",
+    "cy:run-e2e": "server-test 3000 'cypress run --e2e --browser chrome'",
+    "cy:open-ct": "cypress open --component --browser chrome",
+    "cy:run-ct": "cypress run --component --browser chrome",
+    "cy:run-ct-fast": "yarn cy:run-ct --config video=false screenshot=false"
   },
   "eslintConfig": {
     "extends": [
