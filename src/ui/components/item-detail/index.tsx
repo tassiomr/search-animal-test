@@ -17,7 +17,7 @@ export const ItemDetail: React.FC<Props> = ({ item, onClose, testId = 'item-deta
   return (
     <div onClick={handleOnClose} className="item-detail-container" data-testid={testId}>
       <aside className="item-detail-wrapper">
-        <img src={item.image} />
+        <img src={item.image} alt={item.title} data-testid="image-item-detail" />
         <Item item={item} testId="item-details" />
       </aside>
     </div>
