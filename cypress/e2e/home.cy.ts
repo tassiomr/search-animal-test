@@ -1,6 +1,6 @@
 describe('Home Page Test Suite', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/');
+    cy.visit('/');
   });
 
   it('should disable the button when there is no text in the input and enable it with input text', () => {
@@ -19,18 +19,18 @@ describe('Home Page Test Suite', () => {
     const input = cy.get('input');
     const clearButton = cy.get('[data-testid="clean-icon-button"]');
 
-    clearButton.should('have.class', 'icons-search-component--none');
-    clearButton.should('not.have.class', 'icons-search-component-none');
+    clearButton.should('have.class', 'icons-input-component--none');
+    clearButton.should('not.have.class', 'icons-input-component-none');
 
     input.type('tomorrowland').then(() => {
-      clearButton.should('not.have.class', 'icons-search-component--none');
-      clearButton.should('have.class', 'icons-search-component');
+      clearButton.should('not.have.class', 'icons-input-component--none');
+      clearButton.should('have.class', 'icons-input-component');
     });
 
     clearButton.click();
 
-    clearButton.should('have.class', 'icons-search-component--none');
-    clearButton.should('not.have.class', 'icons-search-component');
+    clearButton.should('have.class', 'icons-input-component--none');
+    clearButton.should('not.have.class', 'icons-input-component');
   });
 
   it('should allow the user to enter text and erase it using the clear button', () => {
@@ -65,7 +65,7 @@ describe('Home Page Test Suite', () => {
     });
   });
 
-  it.only('should allow the user to enter a valid name of an animal and click the search button', () => {
+  it('should allow the user to enter a invalid name of an animal and click the search button', () => {
     const button = cy.get('button');
     button.should('to.disabled');
 

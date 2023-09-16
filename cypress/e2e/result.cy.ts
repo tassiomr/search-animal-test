@@ -1,6 +1,6 @@
 describe('Result Page Test Suite', () => {
   beforeEach(() => {
-    cy.visit('localhost:3000/result');
+    cy.visit('/result');
   });
 
   it('should open with loading screen and return 1 child from page', () => {
@@ -91,17 +91,17 @@ describe('Result Page Test Suite', () => {
     const input = cy.get('input');
     const clearButton = cy.get('[data-testid="clean-icon-button"]');
 
-    clearButton.should('have.class', 'icons-search-component--none');
-    clearButton.should('not.have.class', 'icons-search-component-none');
+    clearButton.should('have.class', 'icons-input-component--none');
+    clearButton.should('not.have.class', 'icons-input-component-none');
 
     input.type('tomorrowland').then(() => {
-      clearButton.should('not.have.class', 'icons-search-component--none');
-      clearButton.should('have.class', 'icons-search-component');
+      clearButton.should('not.have.class', 'icons-input-component--none');
+      clearButton.should('have.class', 'icons-input-component');
     });
 
     clearButton.click();
 
-    clearButton.should('have.class', 'icons-search-component--none');
-    clearButton.should('not.have.class', 'icons-search-component');
+    clearButton.should('have.class', 'icons-input-component--none');
+    clearButton.should('not.have.class', 'icons-input-component');
   });
 });
