@@ -9,8 +9,8 @@ type Props = {
 export const Footer: React.FC<Props> = ({ testId = 'footer' }) => {
   return (
     <div className="footer-container" data-testid={testId}>
-      <Paragraph text={constants.footer.enterprise} className="text-footer--margin-left" />
-      <Paragraph text={constants.footer.version.replace('$s', '2')} className="text-footer--margin-right" />
+      <Paragraph text={constants.footer.enterprise} />
+      <Paragraph text={constants.footer.version.replace('$s', '2')} />
     </div>
   );
 };
