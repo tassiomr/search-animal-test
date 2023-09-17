@@ -1,6 +1,6 @@
 import { Button } from '@ui/components';
 import * as React from 'react';
-import { Mount } from '../utils/mount';
+import { Mount } from '../../../../cypress/utils/mount';
 
 const bgColorEnabled = 'rgb(248, 249, 250)';
 const bgColorDisabled = 'rgb(227, 230, 232)';

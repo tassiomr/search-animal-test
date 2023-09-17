@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Header } from '@ui/components';
-import { Mount } from '../utils/mount';
+import { Mount } from '../../../../cypress/utils/mount';
 
 describe('Header Component Suite Teste', () => {
   const titleString = 'Testing Header';

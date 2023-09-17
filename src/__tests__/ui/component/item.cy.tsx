@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Mount } from '../utils/mount';
+import { Mount } from '../../../../cypress/utils/mount';
 import { Item } from '@ui/components';
 import { faker } from '@faker-js/faker';
 import { ResultModel } from '@domain/models/result.model';

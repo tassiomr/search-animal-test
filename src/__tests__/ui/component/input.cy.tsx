@@ -1,5 +1,5 @@
 import { Input } from '@ui/components';
-import { Mount } from '../utils/mount';
+import { Mount } from '../../../../cypress/utils/mount';
 import * as React from 'react';
 
 describe('Input Component Test Suite', () => {

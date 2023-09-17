@@ -1,6 +1,6 @@
 import { ResultModel } from '@domain/models/result.model';
 import { ItemDetail } from '@ui/components';
-import { Mount } from '../utils/mount';
+import { Mount } from '../../../../cypress/utils/mount';
 import * as React from 'react';
 import { faker } from '@faker-js/faker';
 
