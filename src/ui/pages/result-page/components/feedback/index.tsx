@@ -4,8 +4,11 @@ import { constants } from '@app/configs';
 
 type Props = {
   errorMessage?: { message: string; span: string } | null;
+  isVisible: boolean;
 };
-export const FeebackMessage: React.FC<Props> = ({ errorMessage }) => {
+export const FeebackMessage: React.FC<Props> = ({ errorMessage, isVisible }) => {
+  if (!isVisible) return null;
+
   return (
     <div className="result-container-message" data-testid="result-page-feedback">
       {errorMessage?.message ? (

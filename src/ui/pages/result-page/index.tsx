@@ -25,12 +25,15 @@ export const ResultPage = () => {
         </div>
       </Header>
       <div className="result-container-body" data-testid="result-container-body">
-        {vModel.shouldDisplayFeedbackMessage && <FeebackMessage errorMessage={vModel.errorMessage} />}
+        <FeebackMessage errorMessage={vModel.errorMessage} isVisible={vModel.shouldDisplayFeedbackMessage} />
         <Loading isVisible={vModel.isLoading} />
-        {vModel.shouldDisplayResults ? <ResultList animals={vModel.items} onClick={vModel.onClick} /> : null}
-        {vModel.shouldDisplayItemDetail ? (
-          <ItemDetail testId="item-detail-search" onClose={vModel.onCleanSelection} item={vModel.item!} />
-        ) : null}
+        <ResultList
+          item={vModel.item}
+          animals={vModel.items}
+          onClick={vModel.onClick}
+          onClose={vModel.onClose}
+          isVisible={vModel.shouldDisplayResults}
+        />
       </div>
       <Footer />
     </div>

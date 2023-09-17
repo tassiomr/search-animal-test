@@ -10,6 +10,8 @@ type Props = {
 };
 
 export const ItemDetail: React.FC<Props> = ({ item, onClose, testId = 'item-detail' }) => {
+  if (!item) return null;
+
   const handleOnClose = () => {
     onClose();
   };
