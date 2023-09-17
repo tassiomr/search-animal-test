@@ -1,17 +1,11 @@
 import { Footer, Header, Button, Input } from '@ui/components';
 import './styles.css';
 import { constants } from '@app/configs';
-import { useSearchContext } from '@app/contexts/search.context';
 import logo from '@ui/assets/logo.png';
+import { HomePageViewModel } from './home-page.view-model';
 
 export const HomePage = () => {
-  const { termToSearch, setTermToSearch, clearTermToSearch, goToResultPage } = useSearchContext();
-
-  const onKeyDown = () => {
-    if (termToSearch.length) {
-      goToResultPage();
-    }
-  };
+  const vModel = HomePageViewModel();
 
   return (
     <div className="home-container" data-testid="home-page">
@@ -23,9 +17,14 @@ export const HomePage = () => {
       <div className="home-body" data-testid="home-page-body">
         <img src={logo} alt="logo" />
         <div className="spacer" />
-        <Input onChange={setTermToSearch} onClose={clearTermToSearch} onKeyDown={onKeyDown} value={termToSearch} />
+        <Input onChange={vModel.setTerm} onClose={vModel.clearTerm} onKeyDown={vModel.onKeyDown} value={vModel.value} />
         <div className="spacer" />
-        <Button isDisabled={!termToSearch.length} label="Search" onClick={goToResultPage} testId="home-page-button" />
+        <Button
+          isDisabled={vModel.isDisabledButton}
+          label="Search"
+          onClick={vModel.goToResultPage}
+          testId="home-page-button"
+        />
       </div>
       <Footer testId="home-page-footer" />
     </div>

@@ -1,35 +1,14 @@
-import React, { memo, useEffect } from 'react';
+import React from 'react';
 import './styles.css';
 import { FeebackMessage } from './components/feedback';
 import { Input, ItemDetail, Header, Footer } from '@ui/components';
-import { useSearchContext } from '@app/contexts/search.context';
 import { Loading } from './components/loading';
 import { ResultList } from './components/result-list';
 import logo from '@ui/assets/logo.png';
-import { useQuery } from '@app/hooks/useQuery';
+import { ResultPageViewModel } from './result-page.view-model';
 
-export const ResultPage = memo(function () {
-  const {
-    isLoading,
-    termToSearch,
-    items,
-    selectedAnimal,
-    setAnimal,
-    errorMessage,
-    setTermToSearch,
-    clearTermToSearch,
-    getResults,
-  } = useSearchContext();
-
-  const query = useQuery();
-  const shouldDisplayFeedbackMessage = !isLoading && !items.length;
-  const shouldDisplayResults = !isLoading && items.length;
-  const shouldDisplayItemDetail = shouldDisplayResults && !!selectedAnimal;
-
-  useEffect(() => {
-    setTermToSearch(query.get('term') as string);
-    getResults();
-  }, []);
+export const ResultPage = () => {
+  const vModel = ResultPageViewModel();
 
   return (
     <div className="result-container" data-testid="result-page">
@@ -38,24 +17,24 @@ export const ResultPage = memo(function () {
           <img className="image-result-container" alt="Result" src={logo} />
           <Input
             testId="search-input-result-page"
-            onChange={setTermToSearch}
-            onClose={clearTermToSearch}
-            onKeyDown={getResults}
-            value={termToSearch}
+            onChange={vModel.onChange}
+            onClose={vModel.onClose}
+            onKeyDown={vModel.onKeyDown}
+            value={vModel.term}
           />
         </div>
       </Header>
       <div className="result-container-body" data-testid="result-container-body">
-        {shouldDisplayFeedbackMessage && <FeebackMessage errorMessage={errorMessage} />}
-        <Loading isVisible={isLoading} />
-        {shouldDisplayResults ? <ResultList animals={items} onClick={setAnimal} /> : null}
-        {shouldDisplayItemDetail ? (
-          <ItemDetail testId="item-detail-search" onClose={() => setAnimal(null)} item={selectedAnimal} />
+        {vModel.shouldDisplayFeedbackMessage && <FeebackMessage errorMessage={vModel.errorMessage} />}
+        <Loading isVisible={vModel.isLoading} />
+        {vModel.shouldDisplayResults ? <ResultList animals={vModel.items} onClick={vModel.onClick} /> : null}
+        {vModel.shouldDisplayItemDetail ? (
+          <ItemDetail testId="item-detail-search" onClose={vModel.onCleanSelection} item={vModel.item!} />
         ) : null}
       </div>
       <Footer />
     </div>
   );
-});
+};
 
 export default ResultPage;
