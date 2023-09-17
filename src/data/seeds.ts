@@ -5,7 +5,7 @@ import { faker } from '@faker-js/faker';
 const getImage = (type: string) => faker.image.urlLoremFlickr({ category: type, width: 644, height: 362 });
 const getType = () => faker.animal.type();
 const getUrl = () => faker.internet.url();
-const getText = () => faker.lorem.sentences();
+const getText = () => faker.lorem.sentences({ max: 2, min: 2 });
 /* @ts-ignore */
 const getTitle = (type: string) => faker.animal[type]();
 

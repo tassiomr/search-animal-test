@@ -1,10 +1,10 @@
 import React from 'react';
-import { ResultModel } from '../../../domain/models/result.model';
 import { Item } from '../item';
 import './styles.css';
+import { Animal } from '@app/models/animal.model';
 
 type Props = {
-  item: ResultModel;
+  item: Animal;
   testId?: string;
   onClose: () => void;
 };

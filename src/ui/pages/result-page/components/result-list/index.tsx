@@ -1,8 +1,7 @@
 import React from 'react';
 import './styles.css';
 import { Item } from '@ui/components/item';
-
-import { ResultModel as Animal } from '@/domain/models/result.model';
+import { Animal } from '@app/models/animal.model';
 
 type Props = {
   animals: Animal[];
