@@ -1,4 +1,9 @@
-import { NavigateFunction, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import {
+  NavigateFunction,
+  useLocation,
+  useNavigate,
+  useSearchParams,
+} from 'react-router-dom';
 import { useQuery } from './useQuery';
 
 type UseRouter = {

@@ -1,4 +1,11 @@
-import { Dispatch, SetStateAction, createContext, useContext, useEffect, useState } from 'react';
+import {
+  Dispatch,
+  SetStateAction,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import { NotFoundError } from '@domain/validators/error';
 import { constants } from '@app/configs';
 import searchAnimalService from '@app/services/search-animal.service';
@@ -27,7 +34,9 @@ export type SearchContextData = {
   clearSelection: () => void;
 };
 
-export const SearchContext = createContext<SearchContextData>({} as SearchContextData);
+export const SearchContext = createContext<SearchContextData>(
+  {} as SearchContextData
+);
 
 export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
   const { setParamsPath, navigate, paramRouter } = useRouter();

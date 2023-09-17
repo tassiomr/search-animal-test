@@ -24,8 +24,14 @@ export const ResultPage = () => {
           />
         </div>
       </Header>
-      <div className="result-container-body" data-testid="result-container-body">
-        <FeebackMessage errorMessage={vModel.errorMessage} isVisible={vModel.shouldDisplayFeedbackMessage} />
+      <div
+        className="result-container-body"
+        data-testid="result-container-body"
+      >
+        <FeebackMessage
+          errorMessage={vModel.errorMessage}
+          isVisible={vModel.shouldDisplayFeedbackMessage}
+        />
         <Loading isVisible={vModel.isLoading} />
         <ResultList
           item={vModel.item}

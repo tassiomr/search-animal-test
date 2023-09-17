@@ -8,6 +8,7 @@
     "prettier", "@typescript-eslint", "react", "react-hooks"],
   "rules": {
     "eqeqeq": "error",
+    "max-len":["error", {"code": 80, "tabWidth": 2 }],
     "no-console": "warn",
     "no-undef": "off",
     "no-unused-vars": "off",
@@ -16,12 +17,13 @@
     "react/no-children-prop": "off",
     "react/react-in-jsx-scope": "off",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/exhaustive-deps": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-explicit-any": "error",
-    "@typescript-eslint/no-unused-vars": "warn",
-    "@typescript-eslint/no-namespace": "off"
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-namespace": "off",
+    "@typescript-eslint/triple-slash-reference": "off"
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {

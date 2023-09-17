@@ -14,7 +14,11 @@ const getComputatedClass = (loading: boolean) => {
   return '';
 };
 
-export const ItemDetail: React.FC<Props> = ({ item, onClose, testId = 'item-detail' }) => {
+export const ItemDetail: React.FC<Props> = ({
+  item,
+  onClose,
+  testId = 'item-detail',
+}) => {
   const [isLoading, setIsLoading] = useState(true);
   const onload = () => setIsLoading(false);
 
@@ -29,7 +33,11 @@ export const ItemDetail: React.FC<Props> = ({ item, onClose, testId = 'item-deta
   };
 
   return (
-    <div onClick={handleOnClose} className="item-detail-container" data-testid={testId}>
+    <div
+      onClick={handleOnClose}
+      className="item-detail-container"
+      data-testid={testId}
+    >
       <div className="item-detail-wrapper">
         {isLoading ? <div className="spinner" /> : null}
         <img

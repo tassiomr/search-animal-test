@@ -2,7 +2,9 @@ import { createBrowserRouter } from 'react-router-dom';
 import { SearchProvider } from '@app/contexts/search.context';
 import { HomePage, ResultPage } from '@ui/pages';
 
-const ContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   return <SearchProvider>{children}</SearchProvider>;
 };
 

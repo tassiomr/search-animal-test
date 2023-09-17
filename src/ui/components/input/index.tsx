@@ -18,7 +18,13 @@ const getComputedClass = (value: string) => {
   }
 };
 
-export const Input: React.FC<Props> = ({ onChange, onKeyDown, onClose, value, testId = 'input' }) => {
+export const Input: React.FC<Props> = ({
+  onChange,
+  onKeyDown,
+  onClose,
+  value,
+  testId = 'input',
+}) => {
   return (
     <div className="input-container" data-testid={testId}>
       <div className="input-wrapper">
@@ -36,7 +42,11 @@ export const Input: React.FC<Props> = ({ onChange, onKeyDown, onClose, value, te
             onChange(event.target.value);
           }}
         />
-        <MdClose className={getComputedClass(value)} data-testid="clean-icon-button" onClick={onClose} />
+        <MdClose
+          className={getComputedClass(value)}
+          data-testid="clean-icon-button"
+          onClick={onClose}
+        />
       </div>
     </div>
   );

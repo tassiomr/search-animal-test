@@ -10,7 +10,8 @@ type HomePageViewModel = {
 };
 
 export const HomePageViewModel = (): HomePageViewModel => {
-  const { termToSearch, setTermToSearch, clearTermToSearch, goToResultPage } = useSearchContext();
+  const { termToSearch, setTermToSearch, clearTermToSearch, goToResultPage } =
+    useSearchContext();
 
   const isDisabledButton = !termToSearch.length;
   const onKeyDown = () => {
