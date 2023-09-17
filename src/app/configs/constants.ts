@@ -1,7 +1,7 @@
 export const constants = {
   homePage: {
-    titleSpan: 'AgileContent',
-    titleRest: 'FrontEnd Test',
+    titleSpan: 'Agile Content',
+    titleRest: 'Frontend test',
   },
   resultPage: {
     feedbackMessage: {
@@ -13,7 +13,7 @@ export const constants = {
   },
   footer: {
     enterprise: 'ⓒ Google 2023',
-    version: 'vesion: $s',
+    version: `vesion: ${process.env.APP_VERSION}`,
   },
   errors: {
     unknown: 'Unknown error',

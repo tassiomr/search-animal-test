@@ -10,7 +10,7 @@ export const Footer: React.FC<Props> = ({ testId = 'footer' }) => {
   return (
     <div className="footer-container" data-testid={testId}>
       <Paragraph text={constants.footer.enterprise} />
-      <Paragraph text={constants.footer.version.replace('$s', '2')} />
+      <Paragraph text={constants.footer.version} />
     </div>
   );
 };
