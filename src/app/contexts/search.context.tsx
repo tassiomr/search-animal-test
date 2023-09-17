@@ -1,9 +1,9 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { ResultModel as Animal } from '@domain/models/result.model';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { SearchUsecase } from '@domain/models/search-use-case';
 import { NotFoundError } from '@domain/validators/error';
 import { constants } from '@app/configs';
+import searchAnimalService from '@app/services/search-animal.service';
 
 type ErrorMessage = {
   message: string;
@@ -50,7 +50,7 @@ export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
       try {
         setIsLoading(true);
 
-        setItems(await SearchUsecase(termToSearch));
+        setItems(await searchAnimalService.getAnimals(termToSearch));
       } catch (error) {
         if (error instanceof NotFoundError) {
           setErrorMessage({ message: error.message, span: error.span });

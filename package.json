@@ -69,6 +69,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "7.21.11",
     "@cypress/code-coverage": "^3.12.1",
+    "@cypress/instrument-cra": "^1.4.0",
     "@types/react-test-renderer": "^18.0.1",
     "@types/styled-components": "^5.1.27",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
@@ -82,7 +83,8 @@
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
-    "react-test-renderer": "^18.2.0"
+    "react-test-renderer": "^18.2.0",
+    "start-server-and-test": "^2.0.0"
   },
   "husky": {
     "hooks": {
@@ -94,16 +96,16 @@
   },
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "start": "node scripts/start.js -r @cypress/instrument-cra start",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "dev": "start-test 3000 cy:open",
-    "cy:open": "cypress open",
     "cy:open-e2e": "server-test 3000 'cypress open --e2e --browser chrome'",
     "cy:run-e2e": "server-test 3000 'cypress run --e2e --browser chrome'",
     "cy:open-ct": "cypress open --component --browser chrome",
     "cy:run-ct": "cypress run --component --browser chrome",
-    "cy:run-ct-fast": "yarn cy:run-ct --config video=false screenshot=false"
+    "cy:run-ct-fast": "yarn cy:run-ct --config video=false screenshot=false",
+    "start": "node scripts/start.js -r @cypress/instrument-cra start",
+    "cy:open": "cypress open",
+    "dev": "start-test 3000 cy:open"
   },
   "eslintConfig": {
     "extends": [
