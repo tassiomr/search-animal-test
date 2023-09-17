@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const paths = require('./paths');
+const packageJson = require('../package.json');
 
 // Make sure that including paths.js after env.js will read .env variables.
 delete require.cache[require.resolve('./paths')];
@@ -59,6 +60,7 @@ process.env.NODE_PATH = (process.env.NODE_PATH || '')
 // Grab NODE_ENV and REACT_APP_* environment variables and prepare them to be
 // injected into the application via DefinePlugin in webpack configuration.
 const REACT_APP = /^REACT_APP_/i;
+const APP_VERSION = packageJson.version;
 
 function getClientEnvironment(publicUrl) {
   const raw = Object.keys(process.env)
@@ -88,6 +90,7 @@ function getClientEnvironment(publicUrl) {
         // Whether or not react-refresh is enabled.
         // It is defined here so it is available in the webpackHotDevClient.
         FAST_REFRESH: process.env.FAST_REFRESH !== 'false',
+        APP_VERSION
       }
     );
   // Stringify all values so we can feed into webpack DefinePlugin

@@ -12,15 +12,15 @@
 .result-container {
   height: var(--default-height);
   justify-content: space-between;
+width: 100%;
 }
 
 .result-container-body {
   margin-top: 85px;
   flex-direction: row;
-  width: 100%;
-  flex: 1;
   transition: width 2s;
-  padding: 0 8rem;
+  padding-left: 8rem;
+  width: 100%;
 }
 
 .search-component-result-container {

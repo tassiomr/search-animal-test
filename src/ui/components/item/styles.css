@@ -25,4 +25,5 @@
 .result-item-container > p {
   font-size: var(--text-small);
   color: var(--text-paragraph);
+  max-width: 500px;
 }
