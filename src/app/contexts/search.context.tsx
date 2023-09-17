@@ -1,5 +1,4 @@
-import { Dispatch, SetStateAction, createContext, useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Dispatch, SetStateAction, createContext, useContext, useEffect, useState } from 'react';
 import { NotFoundError } from '@domain/validators/error';
 import { constants } from '@app/configs';
 import searchAnimalService from '@app/services/search-animal.service';
@@ -31,9 +30,8 @@ export type SearchContextData = {
 export const SearchContext = createContext<SearchContextData>({} as SearchContextData);
 
 export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
-  const navigate = useNavigate();
+  const { setParamsPath, navigate, paramRouter } = useRouter();
 
-  const { setParamsPath } = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [termToSearch, setTermToSearch] = useState('');
   const [selectedAnimal, setAnimal] = useState<Animal | null>(null);
@@ -44,7 +42,6 @@ export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
   const clearSelection = () => setAnimal(null);
 
   const goToResultPage = () => {
-    getResults();
     navigate(`/result?term=${termToSearch}`);
   };
 
@@ -75,6 +72,13 @@ export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
       }
     }
   };
+
+  useEffect(() => {
+    if (paramRouter) {
+      setTermToSearch(paramRouter);
+      setItems([]);
+    }
+  }, []);
 
   return (
     <SearchContext.Provider

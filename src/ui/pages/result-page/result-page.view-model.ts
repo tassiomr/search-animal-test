@@ -1,5 +1,6 @@
 import { useSearchContext } from '@app/contexts/search.context';
 import { Animal } from '@app/models/animal.model';
+import { useEffect } from 'react';
 
 export type ResultPageViewModel = {
   isLoading: boolean;
@@ -40,6 +41,10 @@ export const ResultPageViewModel = (): ResultPageViewModel => {
   const onChange = (value: string) => {
     setTermToSearch(value);
   };
+
+  useEffect(() => {
+    if (!items.length) getResults();
+  }, [items.length, termToSearch]);
 
   return {
     isLoading,

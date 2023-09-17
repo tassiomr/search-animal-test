@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
 import { FeebackMessage } from './components/feedback';
-import { Input, ItemDetail, Header, Footer } from '@ui/components';
+import { Input, Header, Footer } from '@ui/components';
 import { Loading } from './components/loading';
 import { ResultList } from './components/result-list';
 import logo from '@ui/assets/logo.png';
