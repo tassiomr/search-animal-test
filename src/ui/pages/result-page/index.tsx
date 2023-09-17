@@ -1,8 +1,7 @@
 import React, { memo, useEffect } from 'react';
 import './styles.css';
-import { Header, Footer } from '@ui/shared';
 import { FeebackMessage } from './components/feedback';
-import { Input, ItemDetail } from '@ui/components';
+import { Input, ItemDetail, Header, Footer } from '@ui/components';
 import { useSearchContext } from '@app/contexts/search.context';
 import { Loading } from './components/loading';
 import { ResultList } from './components/result-list';
@@ -28,7 +27,7 @@ export const ResultPage = memo(function () {
   const shouldDisplayItemDetail = shouldDisplayResults && !!selectedAnimal;
 
   useEffect(() => {
-    setTermToSearch(query.get('term') || '');
+    setTermToSearch(query.get('term') as string);
     getResults();
   }, []);
 

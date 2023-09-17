@@ -18,7 +18,7 @@ export const Loading: React.FC<Props> = ({ isVisible }) => {
   if (isVisible) {
     return (
       <div className="loading-container" data-testid="result-page-loading">
-        {Array.from({ length: 12 }, (_, index) => (
+        {Array.from({ length: 10 }, (_, index) => (
           <div key={index}>{generateSkeletons(index)}</div>
         ))}
       </div>

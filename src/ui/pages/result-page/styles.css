@@ -16,12 +16,11 @@
 
 .result-container-body {
   margin-top: 85px;
-  display: flex;
   flex-direction: row;
-  justify-content: center;
   width: 100%;
   flex: 1;
   transition: width 2s;
+  padding: 0 8rem;
 }
 
 .search-component-result-container {
@@ -48,3 +47,4 @@
     padding: 0;
   }
 }
+

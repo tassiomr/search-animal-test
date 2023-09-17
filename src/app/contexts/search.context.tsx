@@ -1,6 +1,6 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { ResultModel as Animal } from '@domain/models/result.model';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { SearchUsecase } from '@domain/models/search-use-case';
 import { NotFoundError } from '@domain/validators/error';
 import { constants } from '@app/configs';
@@ -16,7 +16,7 @@ export type SearchContextData = {
   items: Animal[];
   selectedAnimal: Animal | null;
   errorMessage: ErrorMessage | null;
-  setTermToSearch: (term: string) => void;
+  setTermToSearch: (term?: string) => void;
   clearTermToSearch: () => void;
   goToResultPage: () => void;
   getResults: () => Promise<void>;
@@ -27,12 +27,12 @@ export const SearchContext = createContext<SearchContextData>({} as SearchContex
 
 export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
   const navigate = useNavigate();
+  const [_, setSearchParams] = useSearchParams();
 
   const [isLoading, setIsLoading] = useState(false);
   const [termToSearch, setTermToSearch] = useState('');
   const [selectedAnimal, setSelectedAnimal] = useState<Animal | null>(null);
   const [errorMessage, setErrorMessage] = useState<ErrorMessage | null>(null);
-
   const [items, setItems] = useState<Animal[]>([]);
 
   const clearTermToSearch = () => setTermToSearch('');
@@ -42,22 +42,30 @@ export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const getResults = async () => {
-    setIsLoading(true);
     setSelectedAnimal(null);
-    setItems([]);
     setErrorMessage(null);
+    setItems([]);
 
-    try {
-      setItems(await SearchUsecase(termToSearch));
-    } catch (error) {
-      if (error instanceof NotFoundError) {
-        setErrorMessage({ message: error.message, span: error.span });
-      } else {
-        setErrorMessage({ message: constants.errors.unknown, span: '' });
+    if (termToSearch.length) {
+      try {
+        setIsLoading(true);
+
+        setItems(await SearchUsecase(termToSearch));
+      } catch (error) {
+        if (error instanceof NotFoundError) {
+          setErrorMessage({ message: error.message, span: error.span });
+        } else {
+          setErrorMessage({ message: constants.errors.unknown, span: '' });
+        }
+      } finally {
+        setIsLoading(false);
       }
-    } finally {
-      setIsLoading(false);
     }
+  };
+
+  const changeTermToSearch = (value: string = '') => {
+    setTermToSearch(value);
+    setSearchParams({ term: value });
   };
 
   return (
@@ -66,7 +74,7 @@ export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
         isLoading,
         items,
         termToSearch,
-        setTermToSearch,
+        setTermToSearch: changeTermToSearch,
         clearTermToSearch,
         goToResultPage,
         getResults,
