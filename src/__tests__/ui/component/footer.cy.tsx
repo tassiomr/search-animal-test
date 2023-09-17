@@ -21,6 +21,6 @@ describe('Footer Component Suite Teste', () => {
   });
 
   it('renders right info with the correct text', () => {
-    cy.get('p').last().should('have.text', constants.footer.version.replace('$s', '2'));
+    cy.get('p').last().should('have.text', constants.footer.version);
   });
 });
