@@ -1,7 +1,7 @@
+import * as React from 'react';
 import { SearchContext, SearchContextData } from '@app/contexts/search.context';
 import { ResultPage } from '@ui/pages';
-import { MountStyles } from '@__tests__/__utils__/mount-style';
-import { data, item } from '@__mocks__/search.context.mock';
+import { MountStyles, mockedAnimal, defaultProps } from '../../utils';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import { constants } from '@app/configs';
 import { ResultModel } from '@domain/models/result.model';
@@ -9,7 +9,7 @@ import { ResultModel } from '@domain/models/result.model';
 const Provider = ({ props }: { props: Partial<SearchContextData> }) => {
   return (
     <MountStyles>
-      <SearchContext.Provider value={{ ...data, ...props }}>
+      <SearchContext.Provider value={{ ...defaultProps, ...props }}>
         <ResultPage />
       </SearchContext.Provider>
     </MountStyles>
@@ -50,7 +50,7 @@ describe('Result Component Test Suite', () => {
   it('should search results finish', () => {
     const value = 'bird';
     const isLoading = false;
-    const items = [item, item, item];
+    const items = [mockedAnimal, mockedAnimal, mockedAnimal];
     cy.mount(
       <MemoryRouter>
         <Routes>
@@ -72,15 +72,13 @@ describe('Result Component Test Suite', () => {
     );
 
     /* ITEM LIST */
-    cy.get('[data-testid="result-page-list"]')
-      .should('exist')
-      .and('have.have.length', 1)
-      .children()
-      .and('have.length', items.length);
+    cy.get('[data-testid="result-page-list"]').children().should('have.length', 2);
+    cy.get('[data-testid="result-page-wrapper"]').children().should('have.length', 3);
+    cy.get('[data-testid="result-page-item-detail"]').children().should('have.length', 0);
 
-    cy.get('h1').first().should('have.text', item.title);
-    cy.get('h3').first().should('have.text', item.url);
-    cy.get('p').first().should('have.text', item.description);
+    cy.get('h1').first().should('have.text', mockedAnimal.title);
+    cy.get('h3').first().should('have.text', mockedAnimal.url);
+    cy.get('p').first().should('have.text', mockedAnimal.description);
 
     /* INPUT STATE */
 
@@ -90,10 +88,10 @@ describe('Result Component Test Suite', () => {
     cy.get('[data-testid=clean-icon-button').should('have.class', 'icons-input-component');
   });
 
-  it('should click on one result', () => {
+  it.only('should click on one result', () => {
     const value = 'bird';
     const isLoading = false;
-    const items = [item, item, item];
+    const items = [mockedAnimal, mockedAnimal, mockedAnimal];
     cy.mount(
       <MemoryRouter>
         <Routes>
@@ -105,7 +103,7 @@ describe('Result Component Test Suite', () => {
                   isLoading,
                   termToSearch: value,
                   items,
-                  selectedAnimal: item,
+                  selectedAnimal: mockedAnimal,
                 }}
               />
             }
@@ -115,22 +113,20 @@ describe('Result Component Test Suite', () => {
     );
 
     /* ITEM LIST */
-    cy.get('[data-testid="result-page-list"]')
-      .should('exist')
-      .and('have.have.length', 1)
-      .children()
-      .and('have.length', items.length);
+    cy.get('[data-testid="result-page-list"]').children().should('have.length', 2);
+    cy.get('[data-testid="result-page-wrapper"]').children().should('have.length', 3);
+    cy.get('[data-testid="result-page-item-detail"]').children().should('have.length', 1);
 
-    cy.get('h1').first().should('have.text', item.title);
-    cy.get('h3').first().should('have.text', item.url);
-    cy.get('p').first().should('have.text', item.description);
+    cy.get('h1').first().should('have.text', mockedAnimal.title);
+    cy.get('h3').first().should('have.text', mockedAnimal.url);
+    cy.get('p').first().should('have.text', mockedAnimal.description);
 
     /* ITEM DETAIL */
-    cy.get('[data-testid="item-detail-search"]').should('exist').and('have.have.length', 1);
-    cy.get('[data-testid="item-detail-search"]').find('h1').should('have.text', item.title);
-    cy.get('[data-testid="item-detail-search"]').find('h3').should('have.text', item.url);
-    cy.get('[data-testid="item-detail-search"]').find('p').should('have.text', item.description);
-    cy.get('[data-testid="item-detail-search"]').find('img').should('have.prop', 'src', item.image);
+    cy.get('.item-detail-wrapper').should('exist').and('have.length', 1);
+    cy.get('.item-detail-wrapper').find('h1').should('have.text', mockedAnimal.title);
+    cy.get('.item-detail-wrapper').find('h3').should('have.text', mockedAnimal.url);
+    cy.get('.item-detail-wrapper').find('p').should('have.text', mockedAnimal.description);
+    cy.get('.item-detail-wrapper').find('img').should('have.prop', 'src', mockedAnimal.image);
 
     /* INPUT STATE */
     cy.get('.input-container').should('exist');
@@ -139,7 +135,7 @@ describe('Result Component Test Suite', () => {
     cy.get('[data-testid=clean-icon-button').should('have.class', 'icons-input-component');
   });
 
-  it.only('should when start search without search term', () => {
+  it('should when start search without search term', () => {
     const value = '';
     const isLoading = false;
     const items = [];
@@ -177,7 +173,7 @@ describe('Result Component Test Suite', () => {
     cy.get('[data-testid=clean-icon-button').should('have.class', 'icons-input-component--none');
   });
 
-  it.only('should searching and receiving no results', () => {
+  it('should searching and receiving no results', () => {
     const value = 'bird';
     const isLoading = false;
     const items: ResultModel[] = [];

@@ -1,6 +1,7 @@
+import * as React from 'react';
 import { SearchContext, SearchContextData } from '@app/contexts/search.context';
 import { HomePage } from '@ui/pages';
-import { MountStyles } from '@__tests__/__utils__/mount-style';
+import { MountStyles } from '../../utils';
 
 const bgColorEnabled = 'rgb(248, 249, 250)';
 const bgColorDisabled = 'rgb(227, 230, 232)';

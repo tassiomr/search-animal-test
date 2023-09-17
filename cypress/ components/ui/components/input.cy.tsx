@@ -1,13 +1,13 @@
 import { Input } from '@ui/components';
-import { Mount } from '../../../../cypress/utils/mount';
+import { MountStyles } from '../../utils/mount-style';
 import * as React from 'react';
 
 describe('Input Component Test Suite', () => {
   it('should render with default values', () => {
     cy.mount(
-      <Mount>
+      <MountStyles>
         <Input onChange={() => {}} onKeyDown={() => {}} value={''} onClose={() => {}} />
-      </Mount>
+      </MountStyles>
     );
 
     cy.get('.input-container').should('exist');
@@ -17,9 +17,9 @@ describe('Input Component Test Suite', () => {
 
   it('should render with empty value and not render a close icon', () => {
     cy.mount(
-      <Mount>
+      <MountStyles>
         <Input onChange={() => {}} onKeyDown={() => {}} value={''} onClose={() => {}} />
-      </Mount>
+      </MountStyles>
     );
     cy.get('.input-container').should('exist');
     cy.get('.input-wrapper').should('exist');
@@ -30,9 +30,9 @@ describe('Input Component Test Suite', () => {
   it('should render with empty value and render a close icon', () => {
     const value = 'bird';
     cy.mount(
-      <Mount>
+      <MountStyles>
         <Input onChange={() => {}} onKeyDown={() => {}} value={value} onClose={() => {}} />
-      </Mount>
+      </MountStyles>
     );
     cy.get('.input-container').should('exist');
     cy.get('.input-wrapper').should('exist');

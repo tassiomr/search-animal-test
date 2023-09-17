@@ -6,13 +6,12 @@ describe('User Error Invalid Term Test Suite', () => {
 
     /* HOME PAGE */
 
-    const input = cy.get('input');
-    const button = cy.get('button');
-
-    input.type(value).then(() => {
-      input.should('have.value', value);
-      button.click();
-    });
+    cy.get('input')
+      .type(value)
+      .then(() => {
+        cy.get('input').should('have.value', value);
+        cy.get('button').click();
+      });
 
     /* RESULT PAGE */
     cy.get('[data-testid="result-page-loading"]')

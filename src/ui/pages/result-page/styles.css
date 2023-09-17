@@ -47,3 +47,16 @@
   }
 }
 
+/* DEFAULT STYLES */ 
+
+.default-body-style {
+  padding-left: 8rem;
+}
+
+@media screen and (max-width: 900px) {
+  .default-body-style  {
+    padding-left: 2rem;
+  }
+}
+
+

@@ -1,4 +1,3 @@
-/* Containers */
 .footer-container {
   bottom: 0;
   box-sizing: border-box;
@@ -14,7 +13,6 @@
   background-color: var(--secondary-bg-color);
 }
 
-/* Text */
 .text-footer {
   color: var(--text-footer);
   font-size: var(--text-very-small);

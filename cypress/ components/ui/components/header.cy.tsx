@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { Header } from '@ui/components';
-import { Mount } from '../../../../cypress/utils/mount';
+import { MountStyles } from '../../utils/mount-style';
 
 describe('Header Component Suite Teste', () => {
   const titleString = 'Testing Header';
   beforeEach(() => {
     cy.mount(
-      <Mount>
+      <MountStyles>
         <Header>
           <p>{titleString}</p>
         </Header>
-      </Mount>
+      </MountStyles>
     );
   });
 

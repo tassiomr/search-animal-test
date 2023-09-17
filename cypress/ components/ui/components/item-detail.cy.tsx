@@ -1,6 +1,7 @@
+import * as React from 'react';
 import { ResultModel } from '@domain/models/result.model';
 import { ItemDetail } from '@ui/components';
-import { Mount } from '../../../../cypress/utils/mount';
+import { MountStyles } from '../../utils/mount-style';
 import { faker } from '@faker-js/faker';
 
 const item: ResultModel = {
@@ -15,9 +16,9 @@ const item: ResultModel = {
 describe('ItemDetail Component', () => {
   it('should render the ItemDetail component with the provided testId', () => {
     cy.mount(
-      <Mount>
+      <MountStyles>
         <ItemDetail onClose={() => {}} item={item} testId="custom-item-detail" />
-      </Mount>
+      </MountStyles>
     );
 
     cy.get('[data-testid=custom-item-detail]').should('exist');
@@ -28,7 +29,7 @@ describe('ItemDetail Component', () => {
     cy.get('h3').should('to.contain.text', item.url);
 
     cy.get('[data-testid="image-item-detail"]')
-      .should('has.a.have.prop', 'src', item.image)
-      .and('has.a.have.a.prop', 'alt', item.title);
+      .should('have.prop', 'src', item.image)
+      .and('have.prop', 'alt', item.title);
   });
 });

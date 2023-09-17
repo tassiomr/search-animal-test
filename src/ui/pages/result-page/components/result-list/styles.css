@@ -6,10 +6,6 @@
   flex: 1;
 }
 
-.result-list-wrapper {
-  padding-left: 8rem;
-}
-
 @media screen and (max-width: 900px) {
   .result-list-container {
     grid-template-columns: 100%;

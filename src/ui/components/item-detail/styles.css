@@ -3,6 +3,7 @@
   justify-content: center;
   background-color: var(--background-color);
   transition: width 0.1s, background-color 0.1s;
+  animation: fadeIn 2s;
   width: 100%;
 }
 
@@ -32,6 +33,27 @@
 .item-detail-wrapper > .result-item-container > h3,
 .item-detail-wrapper > .result-item-container > p {
   color: var(--secondary-color);
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid var(--secondary-bg-color); /* Cor do spinner */
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite; /* Animação de rotação */
+  margin-bottom: 16px;
+  align-self: center;
+}
+
+.image-hidden {
+  display: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media screen and (max-width: 900px) {

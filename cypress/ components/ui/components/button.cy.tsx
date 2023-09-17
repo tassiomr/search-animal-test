@@ -1,6 +1,6 @@
 import { Button } from '@ui/components';
 import * as React from 'react';
-import { Mount } from '../../../../cypress/utils/mount';
+import { MountStyles } from '../../utils/mount-style';
 
 const bgColorEnabled = 'rgb(248, 249, 250)';
 const bgColorDisabled = 'rgb(227, 230, 232)';
@@ -13,9 +13,9 @@ describe('Button Component Test Suite', () => {
     const isDisabled = true;
     const onClick = cy.stub().as('click');
     cy.mount(
-      <Mount>
+      <MountStyles>
         <Button onClick={onClick} label={label} isDisabled={isDisabled} />
-      </Mount>
+      </MountStyles>
     );
 
     cy.get('button')

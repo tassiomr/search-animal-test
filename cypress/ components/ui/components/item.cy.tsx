@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Mount } from '../../../../cypress/utils/mount';
+import { MountStyles } from '../../utils/mount-style';
 import { Item } from '@ui/components';
 import { faker } from '@faker-js/faker';
 import { ResultModel } from '@domain/models/result.model';
@@ -17,12 +17,13 @@ describe('Item Component Test Suite', () => {
 
     const onClick = cy.stub().as('click');
     cy.mount(
-      <Mount>
+      <MountStyles>
         <Item item={item} onClick={onClick} />
-      </Mount>
+      </MountStyles>
     );
 
-    cy.get('h1').click().get('@click').should('be.called');
+    cy.get('h1').click();
+    cy.get('@click').should('be.called');
 
     cy.get('h1').should('to.contain.text', item.title);
     cy.get('p').should('to.contain.text', item.description);

@@ -1,4 +1,3 @@
-/* Containers */
 .input-wrapper {
   width: 100%;
   flex: 1;
@@ -36,7 +35,6 @@ input {
   transition: color 0.2s;
 }
 
-/* Responsive Design */
 @media screen and (max-width: 600px) {
   .input-wrapper {
     height: 3rem;

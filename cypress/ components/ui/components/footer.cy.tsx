@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { Footer } from '@ui/components';
-import { Mount } from '../../../../cypress/utils/mount';
+import { MountStyles } from '../../utils/mount-style';
 import { constants } from '@app/configs';
 
 describe('Footer Component Suite Teste', () => {
   beforeEach(() => {
     cy.mount(
-      <Mount>
+      <MountStyles>
         <Footer />
-      </Mount>
+      </MountStyles>
     );
   });
 

@@ -1,7 +1,6 @@
 /* Containers */
 .result-container-message {
   height: 100%;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -23,8 +22,3 @@
 }
 
 
-@media screen and (max-width: 900px) {
-  .result-container-message {
-    padding: 20px;
-  }
-}

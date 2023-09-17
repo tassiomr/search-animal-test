@@ -1,7 +1,7 @@
-.loading-container {
-  width: 80%;
+.result-loading-container {
+  width: 100%;
 }
 
-.loading-container-item {
+.result-loading-container-item {
   margin-bottom: 35px;
 }

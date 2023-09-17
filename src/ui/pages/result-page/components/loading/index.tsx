@@ -17,7 +17,7 @@ const generateSkeletons = (key: number) => (
 export const Loading: React.FC<Props> = ({ isVisible }) => {
   if (isVisible) {
     return (
-      <div className="loading-container" data-testid="result-page-loading">
+      <div className="loading-container default-body-style" data-testid="result-page-loading">
         {Array.from({ length: 10 }, (_, index) => (
           <div key={index}>{generateSkeletons(index)}</div>
         ))}
