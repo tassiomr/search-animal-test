@@ -1,6 +1,6 @@
 name: Continuos Integration
 
-on: [pull_request, commit]
+on: [pull_request, push]
 
 jobs:
   continuos-integration:
