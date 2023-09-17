@@ -1,7 +1,6 @@
 import { ResultModel } from '@domain/models/result.model';
 import { ItemDetail } from '@ui/components';
 import { Mount } from '../../../../cypress/utils/mount';
-import * as React from 'react';
 import { faker } from '@faker-js/faker';
 
 const item: ResultModel = {
@@ -17,7 +16,7 @@ describe('ItemDetail Component', () => {
   it('should render the ItemDetail component with the provided testId', () => {
     cy.mount(
       <Mount>
-        <ItemDetail item={item} testId="custom-item-detail" />
+        <ItemDetail onClose={() => {}} item={item} testId="custom-item-detail" />
       </Mount>
     );
 
