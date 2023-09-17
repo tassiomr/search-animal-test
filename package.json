@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",
+    "@cypress/browserify-preprocessor": "^3.0.2",
+    "@cypress/webpack-dev-server": "^3.6.1",
     "@faker-js/faker": "^8.0.2",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@svgr/webpack": "^5.5.0",
@@ -99,7 +101,10 @@
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
+    "test": "yarn cy:run-ct-fast",
+    "lint": "eslint ./src --ext .ts,.tsx",
+    "lint:fix": "eslint ./src --fix --ext .js,.jsx,.ts,.tsx",
+    
     "cy:open-e2e": "server-test 3000 'cypress open --e2e --browser chrome'",
     "cy:run-e2e": "server-test 3000 'cypress run --e2e --browser chrome'",
     "cy:open-ct": "cypress open --component --browser chrome",
