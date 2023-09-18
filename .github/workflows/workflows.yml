@@ -27,3 +27,4 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           component: true
+          e2e: true
