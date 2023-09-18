@@ -19,12 +19,10 @@ jobs:
           npm run build 
           npm run test
 
-      - name: Checkout
-        uses: actions/checkout@v4
-      
-      - name: Cypress Test
-        uses: cypress-io/github-action@6
+      - name: cypress Test
+        uses: cypress-io/github-action@6.1.0
         with:
+          browser: chrome
           build: npm run build
           start: npm run start
 
