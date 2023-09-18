@@ -8,21 +8,24 @@ const ContextProvider: React.FC<{ children: React.ReactNode }> = ({
   return <SearchProvider>{children}</SearchProvider>;
 };
 
-export default createBrowserRouter([
-  {
-    path: '/',
-    element: (
-      <ContextProvider>
-        <HomePage />
-      </ContextProvider>
-    ),
-  },
-  {
-    path: '/result',
-    element: (
-      <ContextProvider>
-        <ResultPage />,
-      </ContextProvider>
-    ),
-  },
-]);
+export default createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: (
+        <ContextProvider>
+          <HomePage />
+        </ContextProvider>
+      ),
+    },
+    {
+      path: '/result',
+      element: (
+        <ContextProvider>
+          <ResultPage />,
+        </ContextProvider>
+      ),
+    },
+  ],
+  { basename: '/' }
+);
