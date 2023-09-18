@@ -43,8 +43,8 @@ export const ResultPageViewModel = (): ResultPageViewModel => {
   };
 
   useEffect(() => {
-    if (!items.length) getResults();
-  }, [items.length, termToSearch]);
+    getResults();
+  }, []);
 
   return {
     isLoading,

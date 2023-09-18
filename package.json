@@ -1,10 +1,9 @@
 {
-  "name": "agile",
-  "version": "1.0.0",
+  "name": "search-animals",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",
-    "@cypress/browserify-preprocessor": "^3.0.2",
     "@cypress/webpack-dev-server": "^3.6.1",
     "@faker-js/faker": "^8.0.2",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
@@ -31,6 +30,7 @@
     "eslint": "^8.3.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-webpack-plugin": "^3.1.1",
+    "express": "^4.18.2",
     "file-loader": "^6.2.0",
     "fs-extra": "^10.0.0",
     "html-webpack-plugin": "^5.5.0",
@@ -89,29 +89,20 @@
     "react-test-renderer": "^18.2.0",
     "start-server-and-test": "^2.0.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-stage"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "yarn run lint:fix"
-  },
   "scripts": {
+    "start": "npm run build && node server.js",
+    "dev": "node scripts/start.js -r @cypress/instrument-cra start",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "build": "node scripts/build.js",
     "test": "npm run cy:run-ct-fast",
     "lint": "eslint ./src --ext .ts,.tsx",
     "lint:fix": "eslint ./src --fix --ext .js,.jsx,.ts,.tsx",
-
     "cy:open-e2e": "server-test 3000 'cypress open --e2e --browser chrome'",
     "cy:run-e2e": "server-test 3000 'cypress run --e2e --browser chrome'",
     "cy:open-ct": "cypress open --component --browser chrome",
     "cy:run-ct": "cypress run --component --browser chrome",
     "cy:run-ct-fast": "yarn cy:run-ct --config video=false screenshot=false",
-    "start": "node scripts/start.js -r @cypress/instrument-cra start",
-    "cy:open": "cypress open",
-    "dev": "start-test 3000 cy:open"
+    "cy:open": "cypress open"
   },
   "eslintConfig": {
     "extends": [

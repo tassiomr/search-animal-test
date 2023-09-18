@@ -39,7 +39,7 @@ export const SearchContext = createContext<SearchContextData>(
 );
 
 export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
-  const { setParamsPath, navigate, paramRouter } = useRouter();
+  const { navigate, paramRouter } = useRouter();
 
   const [isLoading, setIsLoading] = useState(false);
   const [termToSearch, setTermToSearch] = useState('');
@@ -51,12 +51,11 @@ export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
   const clearSelection = () => setAnimal(null);
 
   const goToResultPage = () => {
-    navigate(`/result?term=${termToSearch}`);
+    navigate(`/result`);
   };
 
   const changeTermToSearch = (value: string) => {
     setTermToSearch(value);
-    setParamsPath(value);
   };
 
   const getResults = async () => {
