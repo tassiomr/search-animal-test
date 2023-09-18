@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ResultModel } from '@domain/models/result.model';
+import { ResultModel } from '@data/models/result.model';
 import { ItemDetail } from '@ui/components';
 import { MountStyles } from '../../utils/mount-style';
 import { faker } from '@faker-js/faker';
@@ -17,7 +17,11 @@ describe('ItemDetail Component', () => {
   it('should render the ItemDetail component with the provided testId', () => {
     cy.mount(
       <MountStyles>
-        <ItemDetail onClose={() => {}} item={item} testId="custom-item-detail" />
+        <ItemDetail
+          onClose={() => {}}
+          item={item}
+          testId="custom-item-detail"
+        />
       </MountStyles>
     );
 

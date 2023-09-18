@@ -1,5 +1,5 @@
 import { Animal } from '@app/models/animal.model';
-import { ResultModel } from '@domain/models/result.model';
+import { ResultModel } from '@data/models/result.model';
 
 export const animalAdapter = (resultModel: ResultModel): Animal => {
   return {

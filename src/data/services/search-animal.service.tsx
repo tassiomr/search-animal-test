@@ -1,7 +1,7 @@
-import { ResultModel } from '@domain/models/result.model';
+import { ResultModel } from '@data/models/result.model';
 import { TextRegexTest } from '@app/utils/regex';
 import { constants } from '@app/configs';
-import { NotFoundError } from '@domain/validators/error';
+import { NotFoundError } from '@data/validators/error';
 
 import { data } from '@data/seeds';
 

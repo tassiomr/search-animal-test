@@ -6,9 +6,9 @@ import {
   useEffect,
   useState,
 } from 'react';
-import { NotFoundError } from '@domain/validators/error';
+import { NotFoundError } from '@data/validators/error';
 import { constants } from '@app/configs';
-import searchAnimalService from '@app/services/search-animal.service';
+import searchAnimalService from '@data/services/search-animal.service';
 import { useRouter } from '@app/hooks/useRouter';
 import { Animal } from '@app/models/animal.model';
 import { animalAdapter } from '@app/adapters/animal.adapter';
@@ -67,7 +67,9 @@ export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
       try {
         setIsLoading(true);
 
-        const items = await searchAnimalService.getAnimals(termToSearch);
+        const items = await searchAnimalService.getAnimals(
+          termToSearch.toLowerCase()
+        );
         setItems(items.map((item) => animalAdapter(item)));
       } catch (error) {
         if (error instanceof NotFoundError) {

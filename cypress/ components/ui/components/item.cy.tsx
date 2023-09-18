@@ -2,7 +2,7 @@ import * as React from 'react';
 import { MountStyles } from '../../utils/mount-style';
 import { Item } from '@ui/components';
 import { faker } from '@faker-js/faker';
-import { ResultModel } from '@domain/models/result.model';
+import { ResultModel } from '@data/models/result.model';
 
 describe('Item Component Test Suite', () => {
   it('should render correclty when receive a item', () => {
