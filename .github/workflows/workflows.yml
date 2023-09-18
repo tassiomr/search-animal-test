@@ -16,13 +16,14 @@ jobs:
         run: |
           npm install
           npm run lint
-          npm run build 
-          npm run test
+          npm run build
 
-      - name: cypress Test
-        uses: cypress-io/github-action@6.1.0
+  cypress-run:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
         with:
-          browser: chrome
-          build: npm run build
-          start: npm run start
-
+          component: true
