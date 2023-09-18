@@ -109,10 +109,10 @@
     "*.{js,jsx,ts,tsx}": "yarn run lint:fix"
   },
   "scripts": {
-    "start": "npm run build && node server.js",
+    "start": "node server.js",
+    "build": "node scripts/build.js",
     "dev": "node scripts/start.js -r @cypress/instrument-cra start",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "build": "node scripts/build.js",
     "test": "npm run cy:run-ct-fast",
     "lint": "eslint ./src --ext .ts,.tsx",
     "lint:fix": "eslint ./src --fix --ext .js,.jsx,.ts,.tsx",
