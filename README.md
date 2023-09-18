@@ -205,10 +205,8 @@ Make sure to explore these test files to understand how various functionalities 
 
 ## What Would I Have Done Differently with More Time?
 
-
+I would have integrated a pagination feature into the application and a error page route.
 If I had more time, I would have integrated and utilized Storybook UI for improved componentization and documentation of UI interfaces, enhancing the onboarding process for new developers and aiding in understanding the application's UI specifics. Additionally, I would have implemented an integration between Cypress and `@testing-library/react` to leverage the benefits of both testing frameworks, enhancing the testing capabilities and efficiency of the application. Combining Cypress with `@testing-library/react` would result in a powerful testing setup, amalgamating the strengths of both frameworks and providing a more comprehensive testing suite for the application.
-
-Additionally, I would have integrated a pagination feature into the application and a error page route.
 
 ### Benefits of Using Storybook UI
 
