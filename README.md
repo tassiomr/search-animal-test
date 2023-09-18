@@ -147,9 +147,9 @@ To lint and format your code, you can use the following commands:
 # Run ESLint (linting)
 npm run lint
 
-# Run Prettier (formatting)
-npm run format
-
+# Run ESLint (fixing)
+npm run lint:fix
+```
 
 ## Conventional Commits
 
@@ -255,8 +255,6 @@ Integrating Cypress with `@testing-library/react` would result in a powerful tes
 <img src="screenshots/resp-5.png" width=250 height=457>
 <img src="screenshots/resp-6.png" width=250 height=457>
 </div>
-
-
 
 ## License
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
