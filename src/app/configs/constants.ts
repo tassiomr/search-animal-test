@@ -7,8 +7,10 @@ export const constants = {
     feedbackMessage: {
       feedbackTryIt: {
         message: 'Try looking for:',
-        span: `insect, fish, horse, crocodilia, 
-        bear, cetacean, cow, lion, rabbit, cat, snake, dog, bird`,
+        span:
+          'insect, fish, horse, crocodilia, bear,' +
+          ' cetacean, cow, lion, rabbit, cat,' +
+          ' snake, dog, bird',
       },
     },
   },

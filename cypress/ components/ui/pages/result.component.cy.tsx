@@ -88,7 +88,7 @@ describe('Result Component Test Suite', () => {
     cy.get('[data-testid=clean-icon-button').should('have.class', 'icons-input-component');
   });
 
-  it.only('should click on one result', () => {
+  it('should click on one result', () => {
     const value = 'bird';
     const isLoading = false;
     const items = [mockedAnimal, mockedAnimal, mockedAnimal];

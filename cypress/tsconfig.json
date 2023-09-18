@@ -7,9 +7,8 @@
       "lib": ["es5", "dom"],
       "types": ["cypress", "node"],
       "paths": {
-        "@*": ["src/*"]
+        "@*": ["../src/*"]
       }
     },
     "include": ["**/*.ts", "**/*.tsx"],
-    "extends": "../tsconfig.json"
   }
