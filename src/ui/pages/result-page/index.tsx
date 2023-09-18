@@ -37,7 +37,7 @@ export const ResultPage = () => {
           item={vModel.item}
           animals={vModel.items}
           onClick={vModel.onClick}
-          onClose={vModel.onClose}
+          onClose={vModel.onCleanSelection}
           isVisible={vModel.shouldDisplayResults}
         />
       </div>

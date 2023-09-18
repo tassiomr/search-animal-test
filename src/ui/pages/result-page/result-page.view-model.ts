@@ -54,7 +54,7 @@ export const ResultPageViewModel = (): ResultPageViewModel => {
     errorMessage,
     onChange,
     onKeyDown: getResults,
-    onClose: clearSelection,
+    onClose: clearTermToSearch,
     onCleanSelection: clearSelection,
     shouldDisplayFeedbackMessage,
     shouldDisplayResults,
